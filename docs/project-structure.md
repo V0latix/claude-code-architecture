@@ -8,18 +8,17 @@ project/
 ├── .mcp.json                          # Configuration MCP servers
 ├── .claude/
 │   ├── settings.json                  # Hooks et permissions
-│   ├── agents/                        # Subagents spécialisés (11 agents)
-│   ├── skills/                        # Paquets de connaissances modulaires (7 skills)
+│   ├── agents/                        # Subagents spécialisés (17 agents)
+│   ├── skills/                        # Paquets de connaissances modulaires (17 skills)
 │   ├── commands/
-│   │   ├── workflows/                 # Workflows multi-agents (5 workflows)
-│   │   └── tools/                     # Outils utilitaires (5 tools)
+│   │   ├── workflows/                 # Workflows multi-agents (12 workflows)
+│   │   └── tools/                     # Outils utilitaires (8 tools)
 │   └── hooks/
 │       ├── scripts/                   # Scripts d'automatisation
 │       └── config/                    # Configuration des hooks
 ├── docs/                              # Documentation
 │   ├── project-structure.md           # Ce fichier
 │   ├── architecture.md               # Architecture technique
-│   ├── api-reference.md              # Référence API
 │   └── decisions/                    # Architecture Decision Records
 └── src/                              # Code source
     └── CONTEXT.md                    # Contexte module (Tier 3)
@@ -27,40 +26,70 @@ project/
 
 ## Agents disponibles
 
+### Agents fondamentaux
+
 | Agent | Modèle | Rôle |
 |-------|--------|------|
 | `analyst` | Sonnet | Brainstorming, recherche, briefs |
 | `architect` | Opus | Design système, ADR, choix tech |
-| `developer` | Opus | Implémentation, debugging |
-| `qa-engineer` | Sonnet | Tests, qualité, performance |
-| `security-auditor` | Opus | Audit sécurité, SAST |
+| `developer` | Opus | Implémentation, debugging, refactoring |
+| `frontend-specialist` | Sonnet | Implémentation React/Next.js (code UI) |
+| `qa-engineer` | Sonnet | Tests, qualité, couverture |
+| `security-auditor` | Opus | Audit sécurité, SAST, compliance |
 | `devops-engineer` | Sonnet | CI/CD, Docker, K8s |
-| `code-reviewer` | Opus | Review multi-critères |
-| `product-manager` | Sonnet | PRD, spécifications |
-| `scrum-master` | Haiku | Stories, agile |
-| `ux-expert` | Sonnet | UI/UX, wireframes |
+| `code-reviewer` | Opus | Review multi-critères en parallèle |
+| `product-manager` | Sonnet | PRD, spécifications, roadmap |
+| `scrum-master` | Haiku | Stories, sprints, agile |
+| `ux-expert` | Sonnet | UI/UX, wireframes, design system |
 | `doc-writer` | Haiku | Documentation technique |
+
+### Agents spécialisés
+
+| Agent | Modèle | Rôle |
+|-------|--------|------|
+| `ai-engineer` | Opus | Applications LLM, RAG, chatbots, agents IA |
+| `data-scientist` | Sonnet | Analyse de données, ML, statistiques |
+| `performance-engineer` | Sonnet | Profiling, optimisation, benchmarks |
+| `mobile-developer` | Sonnet | Applications React Native / Flutter |
+| `incident-responder` | Opus | Incidents production, postmortems |
 
 ## Skills disponibles
 
 | Skill | Cas d'usage |
 |-------|-------------|
-| `async-patterns` | Code asynchrone TypeScript/Node.js |
-| `testing-patterns` | Écriture de tests (Vitest, Playwright) |
-| `api-design` | Design d'API REST/GraphQL |
-| `security-scanning` | Sécurité applicative, OWASP |
-| `docker-k8s` | Containerisation et orchestration |
-| `database-patterns` | Schémas Prisma, requêtes optimisées |
-| `prompt-engineering` | Prompts LLM, agents IA |
+| `api-design` | Design d'API REST/GraphQL, versioning, OpenAPI |
+| `architecture-diagrams` | Diagrammes Mermaid, modèle C4, flowcharts |
+| `async-patterns` | Code asynchrone TypeScript/Node.js, concurrence |
+| `auth-patterns` | JWT, sessions, OAuth/OIDC, RBAC, MFA |
+| `data-engineering` | ETL/ELT pipelines, dbt, Airflow, qualité données |
+| `database-patterns` | Schémas Prisma, requêtes optimisées, migrations |
+| `docker-k8s` | Containerisation, docker-compose, manifests K8s |
+| `document-processing` | Lecture/création PDF, Word (DOCX), Excel (XLSX) |
+| `error-handling-patterns` | Result type, error boundaries, retry logic |
+| `frontend-frameworks` | React 18+, Next.js 15, Server Components, état |
+| `incident-response` | Runbooks, postmortems blameless, escalade |
+| `llm-ai-patterns` | RAG, agents, embeddings, structured output |
+| `mcp-builder` | Création de serveurs MCP (TypeScript/Python) |
+| `observability-patterns` | Prometheus, Grafana, OpenTelemetry, SLOs |
+| `prompt-engineering` | Few-shot, chain-of-thought, optimisation prompts |
+| `security-scanning` | OWASP Top 10, SAST, secrets scanning |
+| `testing-patterns` | Vitest, Jest, Testing Library, Playwright, TDD |
 
 ## Commandes disponibles
 
 ### Workflows
-- `/workflows/full-context` — Analyse multi-agents complète
-- `/workflows/code-review` — Review par 4+ agents en parallèle
-- `/workflows/feature-dev` — Développement E2E d'une feature
-- `/workflows/security-audit` — Audit sécurité complet
-- `/workflows/refactor` — Refactoring intelligent
+- `/workflows/full-context` — Analyse multi-agents complète d'une feature
+- `/workflows/code-review` — Review parallèle par 5 agents spécialisés
+- `/workflows/feature-dev` — Développement feature end-to-end
+- `/workflows/security-audit` — Audit sécurité complet (OWASP Top 10)
+- `/workflows/refactor` — Refactoring intelligent avec métriques before/after
+- `/workflows/ai-feature` — Développement feature IA/LLM (RAG, agent, chatbot)
+- `/workflows/performance-audit` — Profiling, benchmarks, optimisation DB et I/O
+- `/workflows/incident-postmortem` — Triage incident, résolution, postmortem blameless
+- `/workflows/new-project-setup` — Scaffold complet d'un nouveau projet
+- `/workflows/data-pipeline` — Pipeline ELT, dbt, qualité des données, Airflow
+- `/workflows/api-design-review` — Design/review API REST, OpenAPI, sécurité, tests de contrat
+- `/workflows/repo-context` — Analyse repo existant → génère CLAUDE.md, CONTEXT.md, architecture, ADRs, onboarding
 
 ### Tools
 - `/tools/create-docs` — Génération de documentation
@@ -68,3 +97,6 @@ project/
 - `/tools/scaffold` — Scaffolding de composants/modules
 - `/tools/git-status` — Git status enrichi
 - `/tools/test-gen` — Génération automatique de tests
+- `/tools/deps-audit` — Audit dépendances npm (sécurité, obsolescence, licences)
+- `/tools/changelog` — Génération CHANGELOG depuis commits conventionnels
+- `/tools/env-check` — Recensement et documentation des variables d'environnement

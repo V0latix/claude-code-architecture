@@ -70,6 +70,7 @@
 - `/workflows/new-project-setup` — Scaffold complet d'un nouveau projet
 - `/workflows/data-pipeline` — Pipeline ELT, dbt, qualité des données, Airflow
 - `/workflows/api-design-review` — Design/review API REST, OpenAPI, sécurité, tests de contrat
+- `/workflows/repo-context` — Analyse un repo existant et génère CLAUDE.md, CONTEXT.md, architecture, ADRs et onboarding
 
 ### Tools
 
@@ -78,6 +79,9 @@
 - `/tools/scaffold` — Scaffolding de composants/modules
 - `/tools/git-status` — Git status enrichi avec suggestions
 - `/tools/test-gen` — Génération automatique de tests
+- `/tools/deps-audit` — Audit dépendances npm (sécurité, obsolescence, licences)
+- `/tools/changelog` — Génération CHANGELOG depuis commits conventionnels
+- `/tools/env-check` — Recensement et documentation des variables d'environnement
 
 ## Règles importantes
 

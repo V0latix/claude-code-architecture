@@ -6,10 +6,10 @@ Un kit d'architecture complet pour Claude Code qui transforme votre environnemen
 
 | Composant | Quantité | Description |
 |-----------|----------|-------------|
-| **Agents** | 11 | Experts spécialisés (architect, developer, security-auditor...) |
-| **Skills** | 7 | Paquets de connaissances modulaires avec progressive disclosure |
-| **Workflows** | 5 | Workflows multi-agents (full-context, code-review, feature-dev...) |
-| **Tools** | 5 | Outils utilitaires (scaffold, test-gen, git-status...) |
+| **Agents** | 17 | Experts spécialisés (architect, developer, security-auditor...) |
+| **Skills** | 17 | Paquets de connaissances modulaires avec progressive disclosure |
+| **Workflows** | 12 | Workflows multi-agents (full-context, code-review, repo-context...) |
+| **Tools** | 8 | Outils utilitaires (scaffold, test-gen, deps-audit, changelog...) |
 | **Hooks** | 5 | Automatisations (auto-format, security-scanner, checkpoint-commit...) |
 | **MCP Config** | 8 | Serveurs MCP préconfigurés |
 
@@ -33,10 +33,10 @@ Ou utiliser directement ce repository comme template GitHub.
 ├── .mcp.json                    # Configuration MCP servers
 ├── .claude/
 │   ├── settings.json            # Hooks configurés
-│   ├── agents/                  # 11 agents spécialisés
-│   ├── skills/                  # 7 skills modulaires
+│   ├── agents/                  # 17 agents spécialisés
+│   ├── skills/                  # 17 skills modulaires
 │   ├── commands/
-│   │   ├── workflows/           # 5 workflows multi-agents
+│   │   ├── workflows/           # 12 workflows multi-agents
 │   │   └── tools/               # 5 outils utilitaires
 │   └── hooks/scripts/           # Scripts d'automatisation
 └── docs/                        # Documentation et ADRs
@@ -51,6 +51,7 @@ Invoquer un agent avec `use [nom] agent:` dans Claude Code.
 | `analyst` | Sonnet | Brainstorming, recherche, briefs |
 | `architect` | Opus | Design système, ADR, choix technologiques |
 | `developer` | Opus | Implémentation, debugging, refactoring |
+| `frontend-specialist` | Sonnet | Implémentation React/Next.js (code UI) |
 | `qa-engineer` | Sonnet | Tests, qualité, couverture |
 | `security-auditor` | Opus | Audit sécurité, OWASP, SAST |
 | `devops-engineer` | Sonnet | CI/CD, Docker, Kubernetes |
@@ -59,17 +60,29 @@ Invoquer un agent avec `use [nom] agent:` dans Claude Code.
 | `scrum-master` | Haiku | User stories, sprints, agile |
 | `ux-expert` | Sonnet | UI/UX, wireframes, design system |
 | `doc-writer` | Haiku | Documentation technique |
+| `ai-engineer` | Opus | Applications LLM, RAG, chatbots, agents IA |
+| `data-scientist` | Sonnet | Analyse de données, ML, statistiques |
+| `performance-engineer` | Sonnet | Profiling, optimisation, benchmarks |
+| `mobile-developer` | Sonnet | Applications React Native / Flutter |
+| `incident-responder` | Opus | Incidents production, postmortems |
 
 ## Commandes disponibles
 
 ### Workflows (préfixe `/workflows/`)
 
 ```bash
-/workflows/full-context [feature]    # Analyse multi-agents complète
-/workflows/code-review [fichier]     # Review par 4+ agents en parallèle
-/workflows/feature-dev [feature]     # Développement E2E
-/workflows/security-audit [module]   # Audit sécurité complet
-/workflows/refactor [cible]          # Refactoring intelligent
+/workflows/full-context [feature]         # Analyse multi-agents complète
+/workflows/code-review [fichier]          # Review par 5 agents en parallèle
+/workflows/feature-dev [feature]          # Développement E2E
+/workflows/security-audit [module]        # Audit sécurité complet (OWASP)
+/workflows/refactor [cible]               # Refactoring intelligent
+/workflows/ai-feature [feature]           # Développement feature IA/LLM/RAG
+/workflows/performance-audit [module]     # Profiling, benchmarks, optimisation DB
+/workflows/incident-postmortem [incident] # Triage, résolution, postmortem blameless
+/workflows/new-project-setup              # Scaffold complet d'un nouveau projet
+/workflows/data-pipeline [pipeline]       # Pipeline ELT, dbt, qualité des données
+/workflows/api-design-review [api]        # Design/review API REST, OpenAPI, sécurité
+/workflows/repo-context [chemin/repo]     # Analyse repo existant → génère tout le contexte
 ```
 
 ### Tools (préfixe `/tools/`)
@@ -80,6 +93,9 @@ Invoquer un agent avec `use [nom] agent:` dans Claude Code.
 /tools/scaffold [composant]          # Scaffolding de fichiers
 /tools/git-status                    # Git status enrichi
 /tools/test-gen [fichier]            # Générer des tests automatiquement
+/tools/deps-audit                    # Audit sécurité et obsolescence des dépendances
+/tools/changelog [version]           # Générer le CHANGELOG depuis git
+/tools/env-check                     # Recenser et documenter les variables d'env
 ```
 
 ## Hooks automatiques
