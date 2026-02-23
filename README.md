@@ -6,10 +6,10 @@ Un kit d'architecture complet pour Claude Code qui transforme votre environnemen
 
 | Composant | Quantité | Description |
 |-----------|----------|-------------|
-| **Agents** | 17 | Experts spécialisés (architect, developer, security-auditor...) |
+| **Agents** | 18 | Experts spécialisés (architect, developer, bmad-orchestrator...) |
 | **Skills** | 17 | Paquets de connaissances modulaires avec progressive disclosure |
-| **Workflows** | 12 | Workflows multi-agents (full-context, code-review, repo-context...) |
-| **Tools** | 8 | Outils utilitaires (scaffold, test-gen, deps-audit, changelog...) |
+| **Workflows** | 15 | Workflows multi-agents (full-context, bmad-greenfield, repo-context...) |
+| **Tools** | 9 | Outils utilitaires (scaffold, test-gen, bmad-story, deps-audit...) |
 | **Hooks** | 5 | Automatisations (auto-format, security-scanner, checkpoint-commit...) |
 | **MCP Config** | 8 | Serveurs MCP préconfigurés |
 
@@ -33,11 +33,11 @@ Ou utiliser directement ce repository comme template GitHub.
 ├── .mcp.json                    # Configuration MCP servers
 ├── .claude/
 │   ├── settings.json            # Hooks configurés
-│   ├── agents/                  # 17 agents spécialisés
+│   ├── agents/                  # 18 agents spécialisés
 │   ├── skills/                  # 17 skills modulaires
 │   ├── commands/
-│   │   ├── workflows/           # 12 workflows multi-agents
-│   │   └── tools/               # 5 outils utilitaires
+│   │   ├── workflows/           # 15 workflows multi-agents
+│   │   └── tools/               # 9 outils utilitaires
 │   └── hooks/scripts/           # Scripts d'automatisation
 └── docs/                        # Documentation et ADRs
 ```
@@ -65,6 +65,7 @@ Invoquer un agent avec `use [nom] agent:` dans Claude Code.
 | `performance-engineer` | Sonnet | Profiling, optimisation, benchmarks |
 | `mobile-developer` | Sonnet | Applications React Native / Flutter |
 | `incident-responder` | Opus | Incidents production, postmortems |
+| `bmad-orchestrator` | Opus | Orchestrateur BMAD — routing de phase, gates, coordination |
 
 ## Commandes disponibles
 
@@ -83,6 +84,11 @@ Invoquer un agent avec `use [nom] agent:` dans Claude Code.
 /workflows/data-pipeline [pipeline]       # Pipeline ELT, dbt, qualité des données
 /workflows/api-design-review [api]        # Design/review API REST, OpenAPI, sécurité
 /workflows/repo-context [chemin/repo]     # Analyse repo existant → génère tout le contexte
+
+# BMAD — Breakthrough Method of Agile AI-driven Development
+/workflows/bmad-greenfield [projet]       # BMAD nouveau projet : Brief → PRD → Archi → Dev loop
+/workflows/bmad-brownfield [feature]      # BMAD projet existant : contexte → story → implémentation
+/workflows/bmad-quick [changement]        # BMAD Quick Flow : spec rapide → dev direct
 ```
 
 ### Tools (préfixe `/tools/`)
@@ -96,6 +102,7 @@ Invoquer un agent avec `use [nom] agent:` dans Claude Code.
 /tools/deps-audit                    # Audit sécurité et obsolescence des dépendances
 /tools/changelog [version]           # Générer le CHANGELOG depuis git
 /tools/env-check                     # Recenser et documenter les variables d'env
+/tools/bmad-story [description]      # Créer une story BMAD prête pour le développement
 ```
 
 ## Hooks automatiques

@@ -8,18 +8,22 @@ project/
 ├── .mcp.json                          # Configuration MCP servers
 ├── .claude/
 │   ├── settings.json                  # Hooks et permissions
-│   ├── agents/                        # Subagents spécialisés (17 agents)
+│   ├── agents/                        # Subagents spécialisés (18 agents)
 │   ├── skills/                        # Paquets de connaissances modulaires (17 skills)
 │   ├── commands/
-│   │   ├── workflows/                 # Workflows multi-agents (12 workflows)
-│   │   └── tools/                     # Outils utilitaires (8 tools)
+│   │   ├── workflows/                 # Workflows multi-agents (15 workflows)
+│   │   └── tools/                     # Outils utilitaires (9 tools)
 │   └── hooks/
 │       ├── scripts/                   # Scripts d'automatisation
 │       └── config/                    # Configuration des hooks
 ├── docs/                              # Documentation
 │   ├── project-structure.md           # Ce fichier
 │   ├── architecture.md               # Architecture technique
-│   └── decisions/                    # Architecture Decision Records
+│   ├── decisions/                    # Architecture Decision Records
+│   ├── bmad/                         # Artefacts BMAD
+│   │   ├── templates/                # Templates (brief, PRD, architecture, epic, story...)
+│   │   └── checklists/               # Checklists qualité (DoD, story-creation, IR, PM)
+│   └── stories/                      # Stories BMAD générées (epic-N-story-M.md)
 └── src/                              # Code source
     └── CONTEXT.md                    # Contexte module (Tier 3)
 ```
@@ -52,6 +56,7 @@ project/
 | `performance-engineer` | Sonnet | Profiling, optimisation, benchmarks |
 | `mobile-developer` | Sonnet | Applications React Native / Flutter |
 | `incident-responder` | Opus | Incidents production, postmortems |
+| `bmad-orchestrator` | Opus | Orchestrateur BMAD — routing phases, gates, coordination |
 
 ## Skills disponibles
 
@@ -91,6 +96,11 @@ project/
 - `/workflows/api-design-review` — Design/review API REST, OpenAPI, sécurité, tests de contrat
 - `/workflows/repo-context` — Analyse repo existant → génère CLAUDE.md, CONTEXT.md, architecture, ADRs, onboarding
 
+#### Workflows BMAD
+- `/workflows/bmad-greenfield` — BMAD nouveau projet : Brief → PRD → Architecture → Épics → Dev story-by-story
+- `/workflows/bmad-brownfield` — BMAD projet existant : découverte contexte → story → implémentation
+- `/workflows/bmad-quick` — BMAD Quick Flow : spec rapide → dev direct (bug fix, refactor, petite feature)
+
 ### Tools
 - `/tools/create-docs` — Génération de documentation
 - `/tools/update-docs` — Synchronisation docs/code
@@ -100,3 +110,4 @@ project/
 - `/tools/deps-audit` — Audit dépendances npm (sécurité, obsolescence, licences)
 - `/tools/changelog` — Génération CHANGELOG depuis commits conventionnels
 - `/tools/env-check` — Recensement et documentation des variables d'environnement
+- `/tools/bmad-story` — Créer une story BMAD complète et prête pour le développement

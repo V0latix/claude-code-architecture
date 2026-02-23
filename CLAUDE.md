@@ -55,6 +55,12 @@
 | Incidents production, postmortems | `use incident-responder agent` | incident-response, observability-patterns, error-handling-patterns, docker-k8s |
 | Implémentation React/Next.js (code) | `use frontend-specialist agent` | frontend-frameworks, async-patterns, testing-patterns, auth-patterns, error-handling-patterns |
 
+### Agent BMAD
+
+| Tâche | Agent | Rôle |
+|-------|-------|------|
+| Orchestration BMAD, routing de phase, gates | `use bmad-orchestrator agent` | Diagnostique la phase, route vers le bon agent, valide les transitions |
+
 ## Commandes disponibles
 
 ### Workflows
@@ -72,6 +78,12 @@
 - `/workflows/api-design-review` — Design/review API REST, OpenAPI, sécurité, tests de contrat
 - `/workflows/repo-context` — Analyse un repo existant et génère CLAUDE.md, CONTEXT.md, architecture, ADRs et onboarding
 
+### Workflows BMAD (Breakthrough Method of Agile AI-driven Development)
+
+- `/workflows/bmad-greenfield` — BMAD complet nouveau projet : Brief → PRD → Architecture → Épics → Stories → Dev loop
+- `/workflows/bmad-brownfield` — BMAD projet existant : découverte contexte → story → implémentation
+- `/workflows/bmad-quick` — BMAD Quick Flow : spec rapide → dev direct (bug fix, refactor, petite feature)
+
 ### Tools
 
 - `/tools/create-docs` — Génération documentation projet
@@ -82,6 +94,7 @@
 - `/tools/deps-audit` — Audit dépendances npm (sécurité, obsolescence, licences)
 - `/tools/changelog` — Génération CHANGELOG depuis commits conventionnels
 - `/tools/env-check` — Recensement et documentation des variables d'environnement
+- `/tools/bmad-story` — Créer une story BMAD complète et prête pour le développement
 
 ## Règles importantes
 
