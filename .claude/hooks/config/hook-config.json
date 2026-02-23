@@ -1,0 +1,58 @@
+{
+  "version": "1.0.0",
+  "description": "Configuration des hooks Claude Code",
+  "hooks": {
+    "security-scanner": {
+      "enabled": true,
+      "blocked_files": [
+        ".env",
+        ".env.local",
+        ".env.production",
+        ".env.staging",
+        ".env.test",
+        "package-lock.json",
+        "yarn.lock",
+        "pnpm-lock.yaml",
+        "*.pem",
+        "*.key",
+        "*.p12",
+        "*.pfx",
+        "id_rsa",
+        "id_ed25519",
+        ".npmrc",
+        ".netrc"
+      ]
+    },
+    "auto-format": {
+      "enabled": true,
+      "formatters": {
+        "typescript": "prettier",
+        "javascript": "prettier",
+        "python": "black",
+        "go": "gofmt",
+        "shell": "shfmt"
+      }
+    },
+    "checkpoint-commit": {
+      "enabled": true,
+      "min_changes": 1,
+      "excluded_patterns": [
+        ".env*",
+        "*.pem",
+        "*.key",
+        "package-lock.json"
+      ]
+    },
+    "squash-checkpoints": {
+      "enabled": true,
+      "min_checkpoints_to_squash": 2
+    },
+    "notifications": {
+      "enabled": true,
+      "platform_commands": {
+        "macos": "osascript -e 'display notification \"{message}\" with title \"Claude Code\"'",
+        "linux": "notify-send 'Claude Code' '{message}'"
+      }
+    }
+  }
+}
