@@ -40,6 +40,8 @@ Ou utiliser directement ce repository comme template GitHub.
 │   │   └── tools/               # 9 outils utilitaires
 │   └── hooks/scripts/           # Scripts d'automatisation
 └── docs/                        # Documentation et ADRs
+    ├── bmad/                    # Templates et checklists BMAD
+    └── stories/                 # Stories BMAD générées
 ```
 
 ## Agents disponibles
