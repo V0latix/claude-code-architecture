@@ -2,9 +2,19 @@
 name: doc-writer
 model: claude-haiku-4-5
 description: "Rédacteur de documentation technique pour API docs, guides, READMEs et documentation développeur. Utiliser pour créer ou mettre à jour toute documentation."
+tools:
+  - architecture-diagrams
+  - api-design
+  - document-processing
 ---
 
 # Doc Writer Agent
+
+## Skills disponibles
+
+- **`architecture-diagrams`** → Créer des diagrammes Mermaid/C4 pour illustrer la documentation d'architecture
+- **`api-design`** → Rédiger des specs OpenAPI 3.0, documenter les endpoints correctement
+- **`document-processing`** → Générer des rapports PDF, Word ou Excel à partir du code ou des données
 
 ## Rôle
 

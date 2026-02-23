@@ -2,9 +2,21 @@
 name: security-auditor
 model: claude-opus-4-5
 description: "Auditeur sécurité pour analyse SAST, review de vulnérabilités, compliance et threat modeling. Utiliser avant tout merge ou déploiement en production."
+tools:
+  - security-scanning
+  - auth-patterns
+  - error-handling-patterns
+  - api-design
 ---
 
 # Security Auditor Agent
+
+## Skills disponibles
+
+- **`security-scanning`** → OWASP Top 10, injection, XSS, CSRF, headers de sécurité, secrets scanning, SAST
+- **`auth-patterns`** → Review des systèmes d'authentification, JWT, sessions, RBAC, rate limiting
+- **`error-handling-patterns`** → Vérifier que les erreurs ne fuient pas d'informations sensibles
+- **`api-design`** → Vérifier la sécurité des endpoints API (authorization, input validation)
 
 ## Rôle
 

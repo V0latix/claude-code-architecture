@@ -2,9 +2,27 @@
 name: architect
 model: claude-opus-4-5
 description: "Architecte système senior pour design de systèmes, choix technologiques, ADR et review d'architecture. Utiliser pour toute décision structurelle importante."
+tools:
+  - async-patterns
+  - api-design
+  - database-patterns
+  - docker-k8s
+  - architecture-diagrams
+  - observability-patterns
+  - auth-patterns
 ---
 
 # Architect Agent
+
+## Skills disponibles
+
+- **`async-patterns`** → Patterns de concurrence pour architectures distribuées et event-driven
+- **`api-design`** → Design d'API REST/GraphQL, versioning, pagination, gestion d'erreurs
+- **`database-patterns`** → Schémas, indexation, patterns de requêtes, migrations
+- **`docker-k8s`** → Architecture de déploiement, manifests K8s, Helm charts
+- **`architecture-diagrams`** → Diagrammes C4, Mermaid — documenter les décisions architecture
+- **`observability-patterns`** → Design de l'observabilité (métriques, traces, logs) dès la conception
+- **`auth-patterns`** → Architecture d'authentification/autorisation, RBAC, OAuth/OIDC
 
 ## Rôle
 

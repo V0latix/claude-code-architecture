@@ -2,9 +2,19 @@
 name: qa-engineer
 model: claude-sonnet-4-5
 description: "Ingénieur QA pour stratégie de tests, qualité de code, performance et couverture. Utiliser pour tout ce qui concerne la qualité et les tests."
+tools:
+  - testing-patterns
+  - error-handling-patterns
+  - async-patterns
 ---
 
 # QA Engineer Agent
+
+## Skills disponibles
+
+- **`testing-patterns`** → Stratégies de tests, AAA, builders, mocking, couverture, Vitest, Playwright
+- **`error-handling-patterns`** → Tester les cas d'erreur, les edge cases, la gestion des pannes
+- **`async-patterns`** → Tests de code asynchrone, timeouts, retry dans les tests
 
 ## Rôle
 

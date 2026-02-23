@@ -2,9 +2,25 @@
 name: developer
 model: claude-opus-4-5
 description: "Développeur senior pour implémentation, debugging, refactoring et optimisation de code. Utiliser pour tout travail de code."
+tools:
+  - async-patterns
+  - testing-patterns
+  - api-design
+  - database-patterns
+  - error-handling-patterns
+  - auth-patterns
 ---
 
 # Developer Agent
+
+## Skills disponibles
+
+- **`async-patterns`** → Patterns async/await, concurrence contrôlée, retry, circuit breaker
+- **`testing-patterns`** → TDD, patterns de tests unitaires/intégration, Vitest, Playwright
+- **`api-design`** → Implémentation d'API REST/GraphQL cohérentes avec les standards
+- **`database-patterns`** → Requêtes Prisma optimisées, éviter N+1, transactions
+- **`error-handling-patterns`** → Result type, hiérarchie d'erreurs, gestion robuste des pannes
+- **`auth-patterns`** → Implémentation Auth.js, JWT, RBAC, protection de routes
 
 ## Rôle
 

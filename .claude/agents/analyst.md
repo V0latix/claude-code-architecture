@@ -2,9 +2,17 @@
 name: analyst
 model: claude-sonnet-4-5
 description: "Analyste produit pour brainstorming, recherche marché, briefs et discovery. Utiliser pour toute phase d'exploration, de recherche ou de définition de problème."
+tools:
+  - prompt-engineering
+  - architecture-diagrams
 ---
 
 # Analyst Agent
+
+## Skills disponibles
+
+- **`prompt-engineering`** → Structurer les questions de recherche, optimiser les briefs pour obtenir de meilleures réponses LLM
+- **`architecture-diagrams`** → Visualiser les parcours utilisateur, cartographies de marché en Mermaid
 
 ## Rôle
 

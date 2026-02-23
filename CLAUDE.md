@@ -28,19 +28,32 @@
 
 ## Routing des agents
 
-| Tâche | Agent à utiliser |
-|-------|-----------------|
-| Brainstorming, recherche, briefs | `use analyst agent` |
-| Design système, choix tech, ADR | `use architect agent` |
-| Implémentation, debugging, refactoring | `use developer agent` |
-| Tests, qualité, performance | `use qa-engineer agent` |
-| Audit sécurité, SAST, compliance | `use security-auditor agent` |
-| CI/CD, Docker, Kubernetes, infra | `use devops-engineer agent` |
-| Code review multi-critères | `use code-reviewer agent` |
-| PRD, spécifications, roadmap | `use product-manager agent` |
-| Stories, sprints, agile | `use scrum-master agent` |
-| UI/UX, wireframes, design | `use ux-expert agent` |
-| Documentation technique | `use doc-writer agent` |
+### Agents fondamentaux (disponibles dans tout projet)
+
+| Tâche | Agent | Skills activées |
+|-------|-------|-----------------|
+| Brainstorming, recherche, briefs | `use analyst agent` | architecture-diagrams, prompt-engineering |
+| Design système, choix tech, ADR | `use architect agent` | api-design, database-patterns, docker-k8s, architecture-diagrams, observability-patterns, auth-patterns, async-patterns |
+| Implémentation, debugging, refactoring | `use developer agent` | async-patterns, testing-patterns, api-design, database-patterns, error-handling-patterns, auth-patterns |
+| Tests, qualité, couverture | `use qa-engineer agent` | testing-patterns, error-handling-patterns, async-patterns |
+| Audit sécurité, SAST, compliance | `use security-auditor agent` | security-scanning, auth-patterns, error-handling-patterns, api-design |
+| CI/CD, Docker, Kubernetes, infra | `use devops-engineer agent` | docker-k8s, observability-patterns, mcp-builder, security-scanning, incident-response |
+| Code review multi-critères | `use code-reviewer agent` | async-patterns, testing-patterns, security-scanning, error-handling-patterns, database-patterns, auth-patterns |
+| PRD, spécifications, roadmap | `use product-manager agent` | architecture-diagrams, prompt-engineering |
+| Stories, sprints, agile | `use scrum-master agent` | architecture-diagrams |
+| UI/UX, wireframes, design | `use ux-expert agent` | frontend-frameworks, architecture-diagrams |
+| Documentation technique | `use doc-writer agent` | architecture-diagrams, api-design, document-processing |
+
+### Agents spécialisés (selon les besoins du projet)
+
+| Tâche | Agent | Skills activées |
+|-------|-------|-----------------|
+| Applications LLM, RAG, chatbots, agents IA | `use ai-engineer agent` | llm-ai-patterns, prompt-engineering, async-patterns, api-design, testing-patterns |
+| Analyse de données, ML, statistiques | `use data-scientist agent` | data-engineering, database-patterns, async-patterns, testing-patterns |
+| Profiling, optimisation, benchmarks | `use performance-engineer agent` | async-patterns, database-patterns, observability-patterns, error-handling-patterns |
+| Applications React Native / Flutter | `use mobile-developer agent` | frontend-frameworks, async-patterns, testing-patterns, security-scanning |
+| Incidents production, postmortems | `use incident-responder agent` | incident-response, observability-patterns, error-handling-patterns, docker-k8s |
+| Implémentation React/Next.js (code) | `use frontend-specialist agent` | frontend-frameworks, async-patterns, testing-patterns, auth-patterns, error-handling-patterns |
 
 ## Commandes disponibles
 
@@ -51,6 +64,7 @@
 - `/workflows/feature-dev` — Développement feature end-to-end
 - `/workflows/security-audit` — Audit sécurité complet
 - `/workflows/refactor` — Refactoring intelligent avec tests
+- `/workflows/ai-feature` — Développement feature IA/LLM (RAG, agent, chatbot)
 
 ### Tools
 

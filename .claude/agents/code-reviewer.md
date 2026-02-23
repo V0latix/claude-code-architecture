@@ -2,9 +2,25 @@
 name: code-reviewer
 model: claude-opus-4-5
 description: "Reviewer de code multi-critères pour review complète avant merge. Lance des analyses parallèles sur architecture, sécurité, qualité et performance."
+tools:
+  - async-patterns
+  - testing-patterns
+  - security-scanning
+  - error-handling-patterns
+  - database-patterns
+  - auth-patterns
 ---
 
 # Code Reviewer Agent
+
+## Skills disponibles
+
+- **`async-patterns`** → Détecter les anti-patterns async, séquentiel inutile, unhandled promises
+- **`testing-patterns`** → Évaluer la qualité et couverture des tests existants
+- **`security-scanning`** → Identifier les vulnérabilités OWASP, secrets exposés, injection
+- **`error-handling-patterns`** → Vérifier la robustesse de la gestion d'erreurs
+- **`database-patterns`** → Détecter N+1, requêtes sans index, transactions manquantes
+- **`auth-patterns`** → Vérifier la sécurité de l'authentification et des autorisations
 
 ## Rôle
 
