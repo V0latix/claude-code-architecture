@@ -1,5 +1,5 @@
 ---
-description: "Analyse multi-agents complète d'une feature ou d'un problème. Lance des analyses en parallèle depuis plusieurs expertises puis compile une synthèse actionnable."
+description: "Analyse multi-agents complète d'une feature ou d'un problème. Lance des analyses en parallèle selon la nature de la demande et compile une synthèse actionnable."
 allowed-tools: Bash, Read, Grep, Glob, Task
 ---
 
@@ -7,59 +7,109 @@ allowed-tools: Bash, Read, Grep, Glob, Task
 
 Analyse complète de la demande suivante : **$ARGUMENTS**
 
-## Étapes d'exécution
+## Étape 1 — Découverte du contexte
 
-### 1. Découverte du contexte
-
-Commence par analyser le projet actuel :
-- Lire `CLAUDE.md` pour le contexte projet
+Lire et comprendre le projet actuel :
+- Lire `CLAUDE.md` (stack, conventions, routing agents)
 - Identifier les fichiers et modules concernés par `$ARGUMENTS`
-- Comprendre l'architecture existante
+- Détecter la nature de la demande (feature, bug, architecture, IA, performance, incident...)
 
-### 2. Analyses parallèles (lancer avec Task)
+```bash
+# Cartographier les fichiers concernés
+grep -r "$ARGUMENTS" src/ --include="*.ts" -l 2>/dev/null | head -20
+cat CLAUDE.md
+```
 
-Lance simultanément les sous-agents suivants :
+## Étape 2 — Sélection et lancement des agents
 
-**Analyst** : Cadrer le problème, identifier les besoins utilisateur et les risques métier
+Lancer en **parallèle avec Task** les agents pertinents selon la nature de `$ARGUMENTS` :
 
-**Architect** : Analyser l'impact architectural, identifier les dépendances et proposer un design
+### Agents de base (toujours actifs)
 
-**Security Auditor** : Identifier les risques de sécurité liés à `$ARGUMENTS`
+**`analyst agent`** (skills: architecture-diagrams, prompt-engineering)
+→ Cadrer le problème, identifier les besoins utilisateur, risques métier
 
-**QA Engineer** : Définir la stratégie de tests et les critères de qualité
+**`architect agent`** (skills: api-design, database-patterns, docker-k8s, architecture-diagrams, observability-patterns, auth-patterns, async-patterns)
+→ Impact architectural, dépendances, design, diagramme C4 si pertinent
 
-### 3. Plan d'implémentation
+**`security-auditor agent`** (skills: security-scanning, auth-patterns, error-handling-patterns)
+→ Risques de sécurité, surfaces d'attaque, conformité
 
-Sur la base des analyses :
-- Déléguer au `developer` agent pour un plan d'implémentation détaillé
-- Découper en étapes ordonnées avec dépendances
+**`qa-engineer agent`** (skills: testing-patterns, error-handling-patterns, async-patterns)
+→ Stratégie de tests, critères de qualité, edge cases
 
-### 4. Synthèse finale
+### Agents spécialisés (selon la nature de la demande)
 
-Compiler tous les résultats dans un document structuré :
+**Si la demande concerne du code applicatif :**
+→ `developer agent` (skills: async-patterns, error-handling-patterns, database-patterns, auth-patterns)
+→ Plan d'implémentation, patterns à utiliser, dépendances
+
+**Si la demande concerne l'UI/UX ou des composants frontend :**
+→ `ux-expert agent` (skills: frontend-frameworks, architecture-diagrams) — design
+→ `frontend-specialist agent` (skills: frontend-frameworks, auth-patterns, error-handling-patterns) — implémentation
+
+**Si la demande concerne un LLM, RAG, agent ou feature IA :**
+→ `ai-engineer agent` (skills: llm-ai-patterns, prompt-engineering, async-patterns)
+→ Architecture pipeline LLM, choix de modèle, stratégie de prompt
+
+**Si la demande concerne les performances ou la scalabilité :**
+→ `performance-engineer agent` (skills: observability-patterns, database-patterns, async-patterns)
+→ Benchmarks, goulots d'étranglement, optimisations
+
+**Si la demande concerne l'infra, le déploiement ou le monitoring :**
+→ `devops-engineer agent` (skills: docker-k8s, observability-patterns, mcp-builder, incident-response)
+→ Pipeline CI/CD, infrastructure, SLOs
+
+**Si la demande concerne les données ou le machine learning :**
+→ `data-scientist agent` (skills: data-engineering, database-patterns)
+→ Analyse, pipeline de données, modélisation
+
+## Étape 3 — Plan d'implémentation
+
+Consolider les analyses et produire un plan ordonné :
+- Étapes avec dépendances explicites
+- Estimation de complexité par étape (S/M/L)
+- Risques identifiés et mitigations
+
+## Étape 4 — Synthèse finale
 
 ```markdown
-# Analyse Complète : [Feature/Problème]
+# Analyse Complète : $ARGUMENTS
 
 ## Résumé exécutif
-[2-3 phrases]
+[2-3 phrases — ce que c'est, pourquoi c'est important, l'approche retenue]
 
 ## Contexte & Problème
-[Analyse de l'analyst]
+[Analyse de l'analyst — besoins utilisateur, valeur métier, risques]
 
 ## Architecture proposée
-[Recommandations de l'architect]
+[Recommandations de l'architect — avec diagramme Mermaid si pertinent]
+
+## Impacts croisés
+| Dimension | Impact | Agent |
+|-----------|--------|-------|
+| Sécurité | ... | security-auditor |
+| Performance | ... | performance-engineer |
+| Tests | ... | qa-engineer |
+| UX | ... | ux-expert |
+| IA | ... | ai-engineer |
+| Infra | ... | devops-engineer |
 
 ## Plan d'implémentation
-[Étapes du developer]
+### Phase 1 (S) — ...
+### Phase 2 (M) — ...
+### Phase 3 (L) — ...
 
-## Stratégie de tests
-[Plan du qa-engineer]
-
-## Points de vigilance sécurité
-[Risques du security-auditor]
+## Skills recommandées pour cette feature
+- [skill-name] : [pourquoi]
 
 ## Prochaines étapes
 1. ...
 2. ...
+3. ...
+
+## Agents à utiliser pour la suite
+- Implémentation : `use developer agent` / `use frontend-specialist agent`
+- Tests : `use qa-engineer agent`
+- Review finale : `/workflows/code-review`
 ```

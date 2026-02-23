@@ -60,11 +60,16 @@
 ### Workflows
 
 - `/workflows/full-context` — Analyse multi-agents complète d'une feature
-- `/workflows/code-review` — Review parallèle par 4+ agents spécialisés
+- `/workflows/code-review` — Review parallèle par 5 agents spécialisés
 - `/workflows/feature-dev` — Développement feature end-to-end
-- `/workflows/security-audit` — Audit sécurité complet
-- `/workflows/refactor` — Refactoring intelligent avec tests
+- `/workflows/security-audit` — Audit sécurité complet (OWASP Top 10)
+- `/workflows/refactor` — Refactoring intelligent avec métriques before/after
 - `/workflows/ai-feature` — Développement feature IA/LLM (RAG, agent, chatbot)
+- `/workflows/performance-audit` — Profiling, benchmarks, optimisation DB et I/O
+- `/workflows/incident-postmortem` — Triage incident, résolution, postmortem blameless
+- `/workflows/new-project-setup` — Scaffold complet d'un nouveau projet
+- `/workflows/data-pipeline` — Pipeline ELT, dbt, qualité des données, Airflow
+- `/workflows/api-design-review` — Design/review API REST, OpenAPI, sécurité, tests de contrat
 
 ### Tools
 
