@@ -7,9 +7,9 @@ Un kit d'architecture complet pour Claude Code qui transforme votre environnemen
 | Composant | Quantité | Description |
 |-----------|----------|-------------|
 | **Agents** | 20 | Experts spécialisés (architect, developer, ui-expert, vscode-developer...) |
-| **Skills** | 19 | Paquets de connaissances modulaires avec progressive disclosure |
+| **Skills** | 24 | Paquets de connaissances modulaires avec progressive disclosure |
 | **Workflows** | 16 | Workflows multi-agents (full-context, bmad-greenfield, vscode-extension-dev...) |
-| **Tools** | 10 | Outils utilitaires (scaffold, test-gen, vscode-scaffold, deps-audit...) |
+| **Tools** | 12 | Outils utilitaires (scaffold, test-gen, write-plan, execute-plan, vscode-scaffold...) |
 | **Hooks** | 5 | Automatisations (auto-format, security-scanner, checkpoint-commit...) |
 | **MCP Config** | 8 | Serveurs MCP préconfigurés |
 
@@ -34,10 +34,10 @@ Ou utiliser directement ce repository comme template GitHub.
 ├── .claude/
 │   ├── settings.json            # Hooks configurés
 │   ├── agents/                  # 20 agents spécialisés
-│   ├── skills/                  # 19 skills modulaires
+│   ├── skills/                  # 24 skills modulaires
 │   ├── commands/
-│   │   ├── workflows/           # 15 workflows multi-agents
-│   │   └── tools/               # 9 outils utilitaires
+│   │   ├── workflows/           # 16 workflows multi-agents
+│   │   └── tools/               # 12 outils utilitaires
 │   └── hooks/scripts/           # Scripts d'automatisation
 └── docs/                        # Documentation et ADRs
     ├── bmad/                    # Templates et checklists BMAD
@@ -109,6 +109,8 @@ Invoquer un agent avec `use [nom] agent:` dans Claude Code.
 /tools/env-check                     # Recenser et documenter les variables d'env
 /tools/bmad-story [description]      # Créer une story BMAD prête pour le développement
 /tools/vscode-scaffold [nom] [type]  # Scaffold extension VSCode (command|treeview|webview|language|chat-participant)
+/tools/write-plan [feature]          # Créer un plan TDD granulaire dans docs/plans/ (tâches 2-5 min)
+/tools/execute-plan [chemin-plan]    # Exécuter un plan task par task avec TDD + verification
 ```
 
 ## Hooks automatiques

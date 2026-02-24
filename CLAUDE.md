@@ -34,7 +34,7 @@
 |-------|-------|-----------------|
 | Brainstorming, recherche, briefs | `use analyst agent` | architecture-diagrams, prompt-engineering |
 | Design système, choix tech, ADR | `use architect agent` | api-design, database-patterns, docker-k8s, architecture-diagrams, observability-patterns, auth-patterns, async-patterns |
-| Implémentation, debugging, refactoring | `use developer agent` | async-patterns, testing-patterns, api-design, database-patterns, error-handling-patterns, auth-patterns |
+| Implémentation, debugging, refactoring | `use developer agent` | async-patterns, testing-patterns, api-design, database-patterns, error-handling-patterns, auth-patterns, systematic-debugging, tdd-enforcement, verification-before-completion, writing-plans, git-worktrees |
 | Tests, qualité, couverture | `use qa-engineer agent` | testing-patterns, error-handling-patterns, async-patterns |
 | Audit sécurité, SAST, compliance | `use security-auditor agent` | security-scanning, auth-patterns, error-handling-patterns, api-design |
 | CI/CD, Docker, Kubernetes, infra | `use devops-engineer agent` | docker-k8s, observability-patterns, mcp-builder, security-scanning, incident-response |
@@ -99,6 +99,8 @@
 - `/tools/env-check` — Recensement et documentation des variables d'environnement
 - `/tools/bmad-story` — Créer une story BMAD complète et prête pour le développement
 - `/tools/vscode-scaffold` — Scaffold complet d'un projet d'extension VSCode (command, treeview, webview, LSP, chat)
+- `/tools/write-plan` — Créer un plan TDD granulaire dans docs/plans/ (tâches de 2-5 min avec code exact)
+- `/tools/execute-plan` — Exécuter un plan task par task avec TDD enforcement et verification automatique
 
 ## Règles importantes
 

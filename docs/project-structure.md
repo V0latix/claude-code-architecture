@@ -9,10 +9,10 @@ project/
 ├── .claude/
 │   ├── settings.json                  # Hooks et permissions
 │   ├── agents/                        # Subagents spécialisés (20 agents)
-│   ├── skills/                        # Paquets de connaissances modulaires (19 skills)
+│   ├── skills/                        # Paquets de connaissances modulaires (24 skills)
 │   ├── commands/
 │   │   ├── workflows/                 # Workflows multi-agents (16 workflows)
-│   │   └── tools/                     # Outils utilitaires (10 tools)
+│   │   └── tools/                     # Outils utilitaires (12 tools)
 │   └── hooks/
 │       ├── scripts/                   # Scripts d'automatisation
 │       └── config/                    # Configuration des hooks
@@ -83,6 +83,11 @@ project/
 | `testing-patterns` | Vitest, Jest, Testing Library, Playwright, TDD |
 | `ui-design-system` | shadcn/ui, Radix UI, Framer Motion, dark mode, design tokens |
 | `vscode-extension` | API namespaces VSCode, TreeView, Webview, LSP, Chat Participant, bundling, publishing |
+| `systematic-debugging` | Débogage 4 phases : root cause → pattern → hypothèse → implémentation |
+| `verification-before-completion` | Preuves fraîches obligatoires avant toute déclaration de succès |
+| `tdd-enforcement` | Cycles RED-GREEN-REFACTOR, aucun code sans test qui échoue d'abord |
+| `writing-plans` | Plans granulaires docs/plans/ avec tâches TDD de 2-5 minutes et code exact |
+| `git-worktrees` | Workspaces isolés par feature, baseline tests, nettoyage |
 
 ## Commandes disponibles
 
@@ -117,3 +122,5 @@ project/
 - `/tools/env-check` — Recensement et documentation des variables d'environnement
 - `/tools/bmad-story` — Créer une story BMAD complète et prête pour le développement
 - `/tools/vscode-scaffold` — Scaffold complet extension VSCode (command, treeview, webview, LSP, chat-participant)
+- `/tools/write-plan` — Créer un plan TDD granulaire dans docs/plans/ (tâches 2-5 min, code exact)
+- `/tools/execute-plan` — Exécuter un plan task par task avec TDD + verification automatique
