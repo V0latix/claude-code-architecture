@@ -8,11 +8,11 @@ project/
 ├── .mcp.json                          # Configuration MCP servers
 ├── .claude/
 │   ├── settings.json                  # Hooks et permissions
-│   ├── agents/                        # Subagents spécialisés (19 agents)
-│   ├── skills/                        # Paquets de connaissances modulaires (18 skills)
+│   ├── agents/                        # Subagents spécialisés (20 agents)
+│   ├── skills/                        # Paquets de connaissances modulaires (19 skills)
 │   ├── commands/
-│   │   ├── workflows/                 # Workflows multi-agents (15 workflows)
-│   │   └── tools/                     # Outils utilitaires (9 tools)
+│   │   ├── workflows/                 # Workflows multi-agents (16 workflows)
+│   │   └── tools/                     # Outils utilitaires (10 tools)
 │   └── hooks/
 │       ├── scripts/                   # Scripts d'automatisation
 │       └── config/                    # Configuration des hooks
@@ -57,6 +57,7 @@ project/
 | `mobile-developer` | Sonnet | Applications React Native / Flutter |
 | `incident-responder` | Opus | Incidents production, postmortems |
 | `ui-expert` | Sonnet | UI app end-to-end — design system, shadcn/ui, animations, dark mode |
+| `vscode-developer` | Sonnet | Extensions VSCode — TreeView, Webview, LSP, Chat Participant, Marketplace |
 | `bmad-orchestrator` | Opus | Orchestrateur BMAD — routing phases, gates, coordination |
 
 ## Skills disponibles
@@ -81,6 +82,7 @@ project/
 | `security-scanning` | OWASP Top 10, SAST, secrets scanning |
 | `testing-patterns` | Vitest, Jest, Testing Library, Playwright, TDD |
 | `ui-design-system` | shadcn/ui, Radix UI, Framer Motion, dark mode, design tokens |
+| `vscode-extension` | API namespaces VSCode, TreeView, Webview, LSP, Chat Participant, bundling, publishing |
 
 ## Commandes disponibles
 
@@ -97,6 +99,7 @@ project/
 - `/workflows/data-pipeline` — Pipeline ELT, dbt, qualité des données, Airflow
 - `/workflows/api-design-review` — Design/review API REST, OpenAPI, sécurité, tests de contrat
 - `/workflows/repo-context` — Analyse repo existant → génère CLAUDE.md, CONTEXT.md, architecture, ADRs, onboarding
+- `/workflows/vscode-extension-dev` — Développement extension VSCode end-to-end (concept → Marketplace)
 
 #### Workflows BMAD
 - `/workflows/bmad-greenfield` — BMAD nouveau projet : Brief → PRD → Architecture → Épics → Dev story-by-story
@@ -113,3 +116,4 @@ project/
 - `/tools/changelog` — Génération CHANGELOG depuis commits conventionnels
 - `/tools/env-check` — Recensement et documentation des variables d'environnement
 - `/tools/bmad-story` — Créer une story BMAD complète et prête pour le développement
+- `/tools/vscode-scaffold` — Scaffold complet extension VSCode (command, treeview, webview, LSP, chat-participant)

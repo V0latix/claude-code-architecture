@@ -55,6 +55,7 @@
 | Incidents production, postmortems | `use incident-responder agent` | incident-response, observability-patterns, error-handling-patterns, docker-k8s |
 | Implémentation React/Next.js (code) | `use frontend-specialist agent` | frontend-frameworks, ui-design-system, async-patterns, testing-patterns, auth-patterns, error-handling-patterns |
 | UI app end-to-end (design + code polished) | `use ui-expert agent` | frontend-frameworks, ui-design-system, architecture-diagrams |
+| Extensions VSCode, Marketplace, Language Server | `use vscode-developer agent` | vscode-extension, async-patterns, testing-patterns, error-handling-patterns |
 
 ### Agent BMAD
 
@@ -78,6 +79,7 @@
 - `/workflows/data-pipeline` — Pipeline ELT, dbt, qualité des données, Airflow
 - `/workflows/api-design-review` — Design/review API REST, OpenAPI, sécurité, tests de contrat
 - `/workflows/repo-context` — Analyse un repo existant et génère CLAUDE.md, CONTEXT.md, architecture, ADRs et onboarding
+- `/workflows/vscode-extension-dev` — Développement d'extension VSCode end-to-end (concept → Marketplace)
 
 ### Workflows BMAD (Breakthrough Method of Agile AI-driven Development)
 
@@ -96,6 +98,7 @@
 - `/tools/changelog` — Génération CHANGELOG depuis commits conventionnels
 - `/tools/env-check` — Recensement et documentation des variables d'environnement
 - `/tools/bmad-story` — Créer une story BMAD complète et prête pour le développement
+- `/tools/vscode-scaffold` — Scaffold complet d'un projet d'extension VSCode (command, treeview, webview, LSP, chat)
 
 ## Règles importantes
 

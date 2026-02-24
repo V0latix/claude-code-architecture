@@ -6,10 +6,10 @@ Un kit d'architecture complet pour Claude Code qui transforme votre environnemen
 
 | Composant | Quantité | Description |
 |-----------|----------|-------------|
-| **Agents** | 19 | Experts spécialisés (architect, developer, ui-expert, bmad-orchestrator...) |
-| **Skills** | 18 | Paquets de connaissances modulaires avec progressive disclosure |
-| **Workflows** | 15 | Workflows multi-agents (full-context, bmad-greenfield, repo-context...) |
-| **Tools** | 9 | Outils utilitaires (scaffold, test-gen, bmad-story, deps-audit...) |
+| **Agents** | 20 | Experts spécialisés (architect, developer, ui-expert, vscode-developer...) |
+| **Skills** | 19 | Paquets de connaissances modulaires avec progressive disclosure |
+| **Workflows** | 16 | Workflows multi-agents (full-context, bmad-greenfield, vscode-extension-dev...) |
+| **Tools** | 10 | Outils utilitaires (scaffold, test-gen, vscode-scaffold, deps-audit...) |
 | **Hooks** | 5 | Automatisations (auto-format, security-scanner, checkpoint-commit...) |
 | **MCP Config** | 8 | Serveurs MCP préconfigurés |
 
@@ -33,8 +33,8 @@ Ou utiliser directement ce repository comme template GitHub.
 ├── .mcp.json                    # Configuration MCP servers
 ├── .claude/
 │   ├── settings.json            # Hooks configurés
-│   ├── agents/                  # 19 agents spécialisés
-│   ├── skills/                  # 18 skills modulaires
+│   ├── agents/                  # 20 agents spécialisés
+│   ├── skills/                  # 19 skills modulaires
 │   ├── commands/
 │   │   ├── workflows/           # 15 workflows multi-agents
 │   │   └── tools/               # 9 outils utilitaires
@@ -67,6 +67,7 @@ Invoquer un agent avec `use [nom] agent:` dans Claude Code.
 | `data-scientist` | Sonnet | Analyse de données, ML, statistiques |
 | `performance-engineer` | Sonnet | Profiling, optimisation, benchmarks |
 | `mobile-developer` | Sonnet | Applications React Native / Flutter |
+| `vscode-developer` | Sonnet | Extensions VSCode — TreeView, Webview, LSP, Chat Participant, Marketplace |
 | `incident-responder` | Opus | Incidents production, postmortems |
 | `bmad-orchestrator` | Opus | Orchestrateur BMAD — routing de phase, gates, coordination |
 
@@ -87,6 +88,7 @@ Invoquer un agent avec `use [nom] agent:` dans Claude Code.
 /workflows/data-pipeline [pipeline]       # Pipeline ELT, dbt, qualité des données
 /workflows/api-design-review [api]        # Design/review API REST, OpenAPI, sécurité
 /workflows/repo-context [chemin/repo]     # Analyse repo existant → génère tout le contexte
+/workflows/vscode-extension-dev [ext]    # Développement extension VSCode end-to-end → Marketplace
 
 # BMAD — Breakthrough Method of Agile AI-driven Development
 /workflows/bmad-greenfield [projet]       # BMAD nouveau projet : Brief → PRD → Archi → Dev loop
@@ -106,6 +108,7 @@ Invoquer un agent avec `use [nom] agent:` dans Claude Code.
 /tools/changelog [version]           # Générer le CHANGELOG depuis git
 /tools/env-check                     # Recenser et documenter les variables d'env
 /tools/bmad-story [description]      # Créer une story BMAD prête pour le développement
+/tools/vscode-scaffold [nom] [type]  # Scaffold extension VSCode (command|treeview|webview|language|chat-participant)
 ```
 
 ## Hooks automatiques
