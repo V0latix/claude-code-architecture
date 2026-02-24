@@ -4,6 +4,7 @@ model: claude-sonnet-4-5
 description: "Spécialiste frontend pour implémenter des interfaces React/Next.js de qualité professionnelle : Server Components, Client Components, Server Actions, gestion d'état avancée et performance frontend. Complémentaire à ux-expert (qui fait le design) : ce agent implémente le code."
 tools:
   - frontend-frameworks
+  - ui-design-system
   - async-patterns
   - testing-patterns
   - auth-patterns

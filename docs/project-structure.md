@@ -8,8 +8,8 @@ project/
 ├── .mcp.json                          # Configuration MCP servers
 ├── .claude/
 │   ├── settings.json                  # Hooks et permissions
-│   ├── agents/                        # Subagents spécialisés (18 agents)
-│   ├── skills/                        # Paquets de connaissances modulaires (17 skills)
+│   ├── agents/                        # Subagents spécialisés (19 agents)
+│   ├── skills/                        # Paquets de connaissances modulaires (18 skills)
 │   ├── commands/
 │   │   ├── workflows/                 # Workflows multi-agents (15 workflows)
 │   │   └── tools/                     # Outils utilitaires (9 tools)
@@ -56,6 +56,7 @@ project/
 | `performance-engineer` | Sonnet | Profiling, optimisation, benchmarks |
 | `mobile-developer` | Sonnet | Applications React Native / Flutter |
 | `incident-responder` | Opus | Incidents production, postmortems |
+| `ui-expert` | Sonnet | UI app end-to-end — design system, shadcn/ui, animations, dark mode |
 | `bmad-orchestrator` | Opus | Orchestrateur BMAD — routing phases, gates, coordination |
 
 ## Skills disponibles
@@ -79,6 +80,7 @@ project/
 | `prompt-engineering` | Few-shot, chain-of-thought, optimisation prompts |
 | `security-scanning` | OWASP Top 10, SAST, secrets scanning |
 | `testing-patterns` | Vitest, Jest, Testing Library, Playwright, TDD |
+| `ui-design-system` | shadcn/ui, Radix UI, Framer Motion, dark mode, design tokens |
 
 ## Commandes disponibles
 

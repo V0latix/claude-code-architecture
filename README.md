@@ -6,8 +6,8 @@ Un kit d'architecture complet pour Claude Code qui transforme votre environnemen
 
 | Composant | Quantité | Description |
 |-----------|----------|-------------|
-| **Agents** | 18 | Experts spécialisés (architect, developer, bmad-orchestrator...) |
-| **Skills** | 17 | Paquets de connaissances modulaires avec progressive disclosure |
+| **Agents** | 19 | Experts spécialisés (architect, developer, ui-expert, bmad-orchestrator...) |
+| **Skills** | 18 | Paquets de connaissances modulaires avec progressive disclosure |
 | **Workflows** | 15 | Workflows multi-agents (full-context, bmad-greenfield, repo-context...) |
 | **Tools** | 9 | Outils utilitaires (scaffold, test-gen, bmad-story, deps-audit...) |
 | **Hooks** | 5 | Automatisations (auto-format, security-scanner, checkpoint-commit...) |
@@ -33,8 +33,8 @@ Ou utiliser directement ce repository comme template GitHub.
 ├── .mcp.json                    # Configuration MCP servers
 ├── .claude/
 │   ├── settings.json            # Hooks configurés
-│   ├── agents/                  # 18 agents spécialisés
-│   ├── skills/                  # 17 skills modulaires
+│   ├── agents/                  # 19 agents spécialisés
+│   ├── skills/                  # 18 skills modulaires
 │   ├── commands/
 │   │   ├── workflows/           # 15 workflows multi-agents
 │   │   └── tools/               # 9 outils utilitaires
@@ -61,6 +61,7 @@ Invoquer un agent avec `use [nom] agent:` dans Claude Code.
 | `product-manager` | Sonnet | PRD, spécifications, roadmap |
 | `scrum-master` | Haiku | User stories, sprints, agile |
 | `ux-expert` | Sonnet | UI/UX, wireframes, design system |
+| `ui-expert` | Sonnet | UI app end-to-end — design system, shadcn/ui, animations, dark mode |
 | `doc-writer` | Haiku | Documentation technique |
 | `ai-engineer` | Opus | Applications LLM, RAG, chatbots, agents IA |
 | `data-scientist` | Sonnet | Analyse de données, ML, statistiques |

@@ -41,7 +41,7 @@
 | Code review multi-critères | `use code-reviewer agent` | async-patterns, testing-patterns, security-scanning, error-handling-patterns, database-patterns, auth-patterns |
 | PRD, spécifications, roadmap | `use product-manager agent` | architecture-diagrams, prompt-engineering |
 | Stories, sprints, agile | `use scrum-master agent` | architecture-diagrams |
-| UI/UX, wireframes, design | `use ux-expert agent` | frontend-frameworks, architecture-diagrams |
+| UI/UX, wireframes, design | `use ux-expert agent` | frontend-frameworks, ui-design-system, architecture-diagrams |
 | Documentation technique | `use doc-writer agent` | architecture-diagrams, api-design, document-processing |
 
 ### Agents spécialisés (selon les besoins du projet)
@@ -53,7 +53,8 @@
 | Profiling, optimisation, benchmarks | `use performance-engineer agent` | async-patterns, database-patterns, observability-patterns, error-handling-patterns |
 | Applications React Native / Flutter | `use mobile-developer agent` | frontend-frameworks, async-patterns, testing-patterns, security-scanning |
 | Incidents production, postmortems | `use incident-responder agent` | incident-response, observability-patterns, error-handling-patterns, docker-k8s |
-| Implémentation React/Next.js (code) | `use frontend-specialist agent` | frontend-frameworks, async-patterns, testing-patterns, auth-patterns, error-handling-patterns |
+| Implémentation React/Next.js (code) | `use frontend-specialist agent` | frontend-frameworks, ui-design-system, async-patterns, testing-patterns, auth-patterns, error-handling-patterns |
+| UI app end-to-end (design + code polished) | `use ui-expert agent` | frontend-frameworks, ui-design-system, architecture-diagrams |
 
 ### Agent BMAD
 
