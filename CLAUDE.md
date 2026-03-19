@@ -84,7 +84,6 @@
 ### Workflows BMAD (Breakthrough Method of Agile AI-driven Development)
 
 - `/workflows/bmad-greenfield` — BMAD complet nouveau projet : Brief → PRD → Architecture → Épics → Stories → Dev loop
-- `/workflows/bmad-brownfield` — BMAD projet existant : découverte contexte → story → implémentation
 - `/workflows/bmad-quick` — BMAD Quick Flow : spec rapide → dev direct (bug fix, refactor, petite feature)
 
 ### Tools

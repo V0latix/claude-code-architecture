@@ -143,7 +143,6 @@ Invoquer un agent avec `use [nom] agent:` dans Claude Code.
 
 # BMAD — Breakthrough Method of Agile AI-driven Development
 /workflows/bmad-greenfield [projet]       # BMAD nouveau projet : Brief → PRD → Archi → Dev loop
-/workflows/bmad-brownfield [feature]      # BMAD projet existant : contexte → story → implémentation
 /workflows/bmad-quick [changement]        # BMAD Quick Flow : spec rapide → dev direct
 ```
 

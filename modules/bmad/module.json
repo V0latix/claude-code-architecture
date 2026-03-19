@@ -1,7 +1,7 @@
 {
   "name": "bmad",
   "displayName": "BMAD Methodology",
-  "description": "Breakthrough Method of Agile AI-driven Development : bmad-orchestrator, product-manager, scrum-master. Workflows greenfield/brownfield/quick. Tool bmad-story. Templates et checklists inclus.",
+  "description": "Breakthrough Method of Agile AI-driven Development : bmad-orchestrator, product-manager, scrum-master. Workflows greenfield/quick. Tool bmad-story. Templates et checklists inclus. Le développement brownfield est géré par /workflows/feature-dev.",
   "version": "1.0.0",
   "depends": ["core", "dev"],
   "components": {
@@ -12,7 +12,6 @@
     ],
     "workflows": [
       ".claude/commands/workflows/bmad-greenfield.md",
-      ".claude/commands/workflows/bmad-brownfield.md",
       ".claude/commands/workflows/bmad-quick.md"
     ],
     "tools": [".claude/commands/tools/bmad-story.md"],
@@ -23,7 +22,6 @@
     "use product-manager agent — PRD, spécifications, roadmap",
     "use scrum-master agent — Stories, sprints, agile",
     "/workflows/bmad-greenfield [projet] — BMAD nouveau projet : Brief → PRD → Archi → Dev loop",
-    "/workflows/bmad-brownfield [feature] — BMAD projet existant : contexte → story → implémentation",
     "/workflows/bmad-quick [changement] — BMAD Quick Flow : spec rapide → dev direct",
     "/tools/bmad-story [description] — Créer une story BMAD prête pour le développement"
   ]
