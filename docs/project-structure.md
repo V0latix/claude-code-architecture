@@ -24,7 +24,7 @@ project/
 │   ├── agents/                        # Subagents spécialisés (20 agents)
 │   ├── skills/                        # Paquets de connaissances modulaires (24 skills)
 │   ├── commands/
-│   │   ├── workflows/                 # Workflows multi-agents (16 workflows)
+│   │   ├── workflows/                 # Workflows multi-agents (17 workflows)
 │   │   └── tools/                     # Outils utilitaires (13 tools)
 │   └── hooks/
 │       ├── scripts/                   # Scripts d'automatisation (dont context-monitor.js)
@@ -138,6 +138,7 @@ project/
 
 #### Workflows BMAD
 - `/workflows/bmad-greenfield` — BMAD nouveau projet : Brief → PRD → Architecture → Épics → Dev story-by-story
+- `/workflows/bmad-brownfield` — BMAD projet existant : diagnostic, project-context.md, architecture, épics (à lancer avant feature-dev)
 - `/workflows/bmad-quick` — BMAD Quick Flow : spec rapide → dev direct (bug fix, refactor, petite feature)
 
 ### Tools

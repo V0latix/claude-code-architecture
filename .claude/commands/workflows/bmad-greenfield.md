@@ -24,7 +24,7 @@ cat docs/architecture.md 2>/dev/null | head -3
 ```
 
 > **Si des artifacts existent déjà**, reprendre à la phase correspondante.
-> **Si le projet est existant**, utiliser `/workflows/feature-dev` à la place.
+> **Si le projet est existant**, utiliser `/workflows/bmad-brownfield` à la place.
 
 ---
 

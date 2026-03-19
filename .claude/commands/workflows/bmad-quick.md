@@ -9,7 +9,7 @@ Changement rapide : **$ARGUMENTS**
 
 > **Quick Flow** = 2 étapes : Quick Spec → Quick Dev
 > Utiliser quand le scope est clairement défini et tient en 1-2 fichiers.
-> **Si le scope grandit → escalader vers `/workflows/feature-dev`**
+> **Si le scope grandit → escalader vers `/workflows/bmad-brownfield`**
 
 ---
 
@@ -29,7 +29,7 @@ cat CLAUDE.md 2>/dev/null | head -20
 - [ ] Pas de dépendance externe à ajouter
 - [ ] Durée estimée < 2h
 
-**Si 3+ critères sont faux → utiliser `/workflows/feature-dev`**
+**Si 3+ critères sont faux → utiliser `/workflows/bmad-brownfield`**
 
 ---
 
@@ -108,7 +108,7 @@ npx tsc --noEmit 2>/dev/null
 npm run lint 2>/dev/null
 ```
 
-**⚠️ Scope guard** : Si pendant l'implémentation on découvre que le scope est plus large que prévu → **STOP** et escalader vers `/workflows/feature-dev`.
+**⚠️ Scope guard** : Si pendant l'implémentation on découvre que le scope est plus large que prévu → **STOP** et escalader vers `/workflows/bmad-brownfield`.
 
 ---
 
@@ -143,7 +143,7 @@ Escalader si pendant le Quick Flow on découvre :
 
 **Action d'escalade** :
 1. Arrêter le Quick Dev
-2. Convertir la Quick Spec en Epic (avec `/workflows/feature-dev` Étape 3)
+2. Convertir la Quick Spec en Epic (avec `/workflows/bmad-brownfield` Étape 3)
 3. Créer une story BMAD complète (outil `bmad-story`)
 
 ---

@@ -1,101 +1,38 @@
 ---
-description: "Développement end-to-end d'une feature sur un projet existant. Commence par un diagnostic des artifacts existants, crée une story BMAD, puis orchestre le cycle complet : architecture → implémentation → tests → sécurité → observabilité → docs → review."
+description: "Développement end-to-end d'une nouvelle feature sur un projet existant. Assume que le contexte projet existe (project-context.md, architecture.md). Si ce n'est pas le cas, lancer d'abord /workflows/bmad-brownfield."
 allowed-tools: Bash, Read, Write, Edit, Grep, Glob, Task
 ---
 
 # Feature Development End-to-End
 
-Feature / amélioration à développer : **$ARGUMENTS**
+Feature à développer : **$ARGUMENTS**
 
 ---
 
-## Phase 0 — Diagnostic & Qualification
-
-### 0A — Vérifier les artifacts existants
+## Prérequis — Contexte projet
 
 ```bash
-echo "=== Diagnostic Projet ==="
-
-echo "--- Artifacts BMAD ---"
-[ -f docs/project-context.md ] && echo "✅ project-context.md" || echo "⬜ project-context.md (manquant)"
-[ -f docs/prd.md ]              && echo "✅ prd.md"              || echo "⬜ prd.md"
-[ -f docs/architecture.md ]     && echo "✅ architecture.md"     || echo "⬜ architecture.md"
-ls docs/epic-*.md 2>/dev/null   && echo "✅ Épics trouvés"       || echo "⬜ Pas d'épics"
-ls docs/stories/ 2>/dev/null    && echo "✅ Stories trouvées"    || echo "⬜ Pas de stories"
-
-echo "--- Codebase ---"
-cat package.json 2>/dev/null | grep '"version"' | head -1
-find src -name "*.ts" 2>/dev/null | wc -l
-find src -name "*.test.ts" -o -name "*.spec.ts" 2>/dev/null | wc -l
-git log --oneline -5 2>/dev/null
+[ -f docs/project-context.md ] && echo "✅ Contexte disponible" || echo "⚠️ STOP : lancer /workflows/bmad-brownfield en premier"
+[ -f docs/architecture.md ]    && echo "✅ Architecture disponible" || echo "⬜ architecture.md absent"
 ```
 
-**Décision selon le diagnostic** :
+> **Si `docs/project-context.md` est absent → STOP.**
+> Lancer `/workflows/bmad-brownfield` d'abord pour créer le contexte du projet, puis revenir ici.
 
-| Situation | Action |
-|-----------|--------|
-| `project-context.md` existe | → Passer à Phase 1 directement |
-| Pas de `project-context.md` mais `architecture.md` existe | → Phase 0B (génération rapide) |
-| Rien n'existe | → Phase 0C (génération complète via `/workflows/repo-context` recommandé) |
+---
 
-### 0B — Générer `docs/project-context.md` si inexistant
+## Phase 0 — Qualification
 
-### `architect agent` + `developer agent`
+Lire le contexte et qualifier la feature :
 
 ```bash
-# Stack réel
-cat package.json | grep -E '"(dependencies|devDependencies)"' -A 40 | head -60
-cat tsconfig.json 2>/dev/null
-
-# Patterns existants
-find src -name "*.service.ts" | head -3 | xargs cat 2>/dev/null | head -80
-find src -name "*.test.ts" | head -2 | xargs cat 2>/dev/null | head -60
-
-# Auth et error handling
-grep -r "getServerSession\|auth()\|middleware" src/ --include="*.ts" -l 2>/dev/null | head -5
-grep -r "Result\|AppError\|throw new" src/ --include="*.ts" -l 2>/dev/null | head -5
-
-# Schéma BDD
-cat prisma/schema.prisma 2>/dev/null | head -60
+cat docs/project-context.md | head -40
+cat docs/architecture.md 2>/dev/null | head -30
+cat docs/prd.md 2>/dev/null | head -30
+ls docs/epic-*.md 2>/dev/null
 ```
 
-Créer `docs/project-context.md` (constitution du projet) :
-
-```markdown
-# Project Context — [Nom du projet]
-> Généré le [date] via /workflows/feature-dev
-
-## Technology Stack & Versions
-- [Versions exactes]
-
-## Critical Implementation Rules
-
-### TypeScript
-- [Strict mode ? any autorisé ?]
-- [Conventions de nommage]
-
-### Code Organization
-- [Où créer les composants, services, etc.]
-- [Conventions de nommage fichiers]
-
-### Patterns Obligatoires
-- Error handling : [Result type / throw / codes]
-- Auth : [Comment vérifier les permissions]
-- DB access : [Direct Prisma / Repository pattern]
-- Async : [Patterns utilisés]
-
-### Testing
-- [Framework, patterns, où mettre les tests]
-- [Coverage minimum]
-
-### Ce qu'il NE FAUT PAS faire
-- [Anti-patterns observés dans le code existant]
-- [Pièges identifiés]
-```
-
-### 0C — Qualifier la nature de la feature
-
-Identifier pour router les bons agents :
+Identifier le type de feature pour router les bons agents :
 
 - **Feature UI** → activer `ux-expert` + `frontend-specialist`
 - **Feature API/Backend** → activer `developer` + `architect`
@@ -103,30 +40,15 @@ Identifier pour router les bons agents :
 - **Feature data** → activer `data-scientist`
 - **Feature avec auth** → activer `security-auditor` en priorité
 - **Feature critique perf** → activer `performance-engineer`
-- **Changement petit/clair** → envisager `/workflows/bmad-quick` à la place
+- **Changement petit/clair (< 2h)** → envisager `/workflows/bmad-quick` à la place
 
 ---
 
-## Phase 1 — Cadrage
-
-### `analyst agent` (skills: architecture-diagrams, prompt-engineering)
-
-```bash
-cat docs/project-context.md 2>/dev/null || cat CLAUDE.md
-cat docs/prd.md 2>/dev/null | head -40
-cat docs/architecture.md 2>/dev/null | head -60
-```
-
-Cadrer la demande `$ARGUMENTS` :
-- La demande est-elle dans le périmètre du PRD existant ?
-- Quel(s) module(s) existants sont touchés ?
-- Y a-t-il des dépendances sur des stories/épics existants ?
-- Nécessite-t-elle un changement d'architecture ?
-- Périmètre : 1 composant ou plusieurs ?
+## Phase 1 — Specs
 
 ### `product-manager agent` (skills: architecture-diagrams, prompt-engineering)
 
-Si pas de PRD existant ou la feature dépasse le périmètre :
+Vérifier si la feature entre dans le périmètre du PRD existant. Si non ou si pas de PRD :
 - Problème à résoudre + valeur utilisateur
 - Exigences Must/Should/Could
 - Critères d'acceptation (Given/When/Then)
@@ -155,11 +77,11 @@ Si pas de PRD existant ou la feature dépasse le périmètre :
 6. Créer un ADR dans `/docs/decisions/` si décision significative
 
 **Vérifications :**
-- Observabilité : logs/métriques/traces à ajouter ?
 - Auth : nouvelle route = nouvelle vérification de permissions ?
 - Database : index nécessaires ? Migrations backward-compatible ?
+- Observabilité : logs/métriques à ajouter ?
 
-### `product-manager agent` (si épic nécessaire)
+### `product-manager agent` — Épic si nécessaire
 
 ```bash
 ls docs/epic-*.md 2>/dev/null | xargs grep "## Titre" 2>/dev/null
@@ -172,15 +94,14 @@ Créer `docs/epic-[N].md` selon `docs/bmad/templates/epic-tmpl.md`. Aligner sur 
 ### `scrum-master agent` (skills: architecture-diagrams)
 
 ```bash
-cat docs/project-context.md 2>/dev/null || cat CLAUDE.md
-cat docs/architecture.md 2>/dev/null | head -60
+cat docs/project-context.md
 cat docs/epic-[N].md 2>/dev/null
 ls docs/stories/ 2>/dev/null
 ```
 
 Créer `docs/stories/epic-[N]-story-[M].md` selon `docs/bmad/templates/story-tmpl.md`.
 
-**Dans les Dev Notes, toujours inclure pour un projet existant :**
+**Dev Notes — toujours inclure :**
 - Les fichiers existants à modifier (chemins exacts)
 - Les patterns existants à respecter (exemples du code actuel)
 - Les tests existants à mettre à jour
@@ -199,7 +120,7 @@ Valider avec `docs/bmad/checklists/story-creation.md`.
 /tools/scaffold component [nom-composant]
 ```
 
-Ordre d'implémentation :
+Ordre :
 1. Composants atomiques (sans état)
 2. Composants avec état local
 3. Intégration Server Actions/API calls
@@ -209,22 +130,19 @@ Ordre d'implémentation :
 ### Si feature backend → `developer agent` (skills: async-patterns, testing-patterns, api-design, database-patterns, error-handling-patterns, auth-patterns)
 
 ```bash
-cat docs/project-context.md 2>/dev/null || cat CLAUDE.md
-cat docs/stories/epic-[N]-story-[M].md 2>/dev/null
+cat docs/project-context.md
+cat docs/stories/epic-[N]-story-[M].md
 ```
 
 Ordre TDD :
 1. **Tests d'abord** selon les critères d'acceptation
 2. Analyser les tests existants avant d'écrire les nouveaux
 3. **Implémentation minimale** qui fait passer les tests
-4. Ne pas changer le comportement de l'existant sans l'indiquer dans la story
-5. Suivre exactement les patterns de `project-context.md`
-6. **Refactoring** (Result type, error hierarchy si nouvelle erreur)
+4. Suivre exactement les patterns de `project-context.md`
+5. **Refactoring** (Result type, error hierarchy si nouvelle erreur)
 
 ```bash
-npm run type-check
-npm test
-npm run lint
+npm run type-check && npm test && npm run lint
 ```
 
 ---
@@ -235,7 +153,6 @@ npm run lint
 - Coverage report — aucune régression sous le seuil projet
 - Tests des edge cases et cas d'erreur
 - Tests e2e pour le chemin critique utilisateur
-- Suite de tests existante toujours au vert
 
 ### `security-auditor agent` (skills: security-scanning, auth-patterns, error-handling-patterns, api-design)
 - Nouvelle surface d'attaque créée par la feature ?
@@ -245,10 +162,9 @@ npm run lint
 
 ### `performance-engineer agent` (skills: async-patterns, database-patterns, observability-patterns)
 *(Activer si la feature touche des données volumineuses ou des chemins chauds)*
-- Benchmark before/after si modification d'un endpoint existant
+- Benchmark before/after
 - N+1 queries ? Index nécessaires ?
-- Opportunités de cache ?
-- Réponse < SLO défini (p95 < 200ms par défaut)
+- Réponse < SLO (p95 < 200ms par défaut)
 
 ---
 
@@ -256,10 +172,9 @@ npm run lint
 
 ### `devops-engineer agent` (skills: docker-k8s, observability-patterns, incident-response)
 
-Pour chaque feature production :
-- Logs structurés ajoutés aux points clés
+- Logs structurés aux points clés
 - Métriques métier (compteur d'utilisation, taux d'erreur)
-- Alerte définie si la feature a un SLO
+- Alerte si la feature a un SLO
 - Health check mis à jour si nouveau service
 
 ---
@@ -270,18 +185,11 @@ Pour chaque feature production :
 
 - README mis à jour si changement d'interface publique
 - Nouveaux endpoints documentés (OpenAPI/Swagger)
-- Diagramme Mermaid si nouveau flux de données
 - CHANGELOG mis à jour
 
 ### Mise à jour de `docs/project-context.md`
 
-Si de nouveaux patterns ont émergé pendant l'implémentation :
-
-```bash
-# Ajouter les nouvelles conventions découvertes
-# Documenter les pièges rencontrés
-# Mettre à jour les chemins de fichiers si structure modifiée
-```
+Si de nouveaux patterns ont émergé pendant l'implémentation, les documenter dans `project-context.md`.
 
 ### Review finale
 
@@ -295,26 +203,19 @@ Lancer `/workflows/code-review $ARGUMENTS` avant merge.
 ## Feature Livrée : $ARGUMENTS
 
 ### Artifacts BMAD
-- project-context.md : ✅ Utilisé / ✅ Mis à jour
 - Story : docs/stories/epic-[N]-story-[M].md ✅
+- project-context.md : ✅ Mis à jour (si nouveaux patterns)
 
 ### Agents utilisés
-- [x] analyst — Cadrage validé
-- [x] architect — ADR créé : /docs/decisions/XXX.md
-- [ ] ux-expert — N/A (pas de UI)
-- [ ] product-manager — PRD existant réutilisé / ✅ mis à jour
-- [x] developer / frontend-specialist — Implémentation
-- [x] qa-engineer — Tests (coverage: X%)
+- [x] product-manager — PRD / epic
+- [x] architect — ADR : /docs/decisions/XXX.md
+- [ ] ux-expert — N/A
+- [x] developer / frontend-specialist — Implémentation TDD
+- [x] qa-engineer — Coverage : X%
 - [x] security-auditor — ✅ Aucun bloquant
-- [ ] performance-engineer — N/A (pas de chemin chaud)
+- [ ] performance-engineer — N/A
 - [x] devops-engineer — Observabilité ajoutée
 
-### Impact sur l'existant
-- Régressions : Aucune / [liste si applicable]
-- Migrations BDD : Oui ([fichier]) / Non
-- Nouveaux patterns documentés : Oui / Non
-
-### Fichiers modifiés : X
-### Nouveaux tests : X | Coverage : X%
+### Fichiers modifiés : X | Nouveaux tests : X | Coverage : X%
 ### Prêt pour merge : ✅ / ❌
 ```
