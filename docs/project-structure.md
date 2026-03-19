@@ -6,15 +6,28 @@
 project/
 ├── CLAUDE.md                          # Contexte projet permanent (chargé à chaque session)
 ├── .mcp.json                          # Configuration MCP servers
+├── install.sh                         # Installateur modulaire interactif
+├── modules/                           # Manifests d'installation modulaire
+│   ├── core/module.json               # Fondation (hooks + skills de base)
+│   ├── process/module.json            # Discipline TDD (debugging, tdd-enforcement...)
+│   ├── dev/module.json                # Développement général
+│   ├── frontend/module.json           # UI/Frontend
+│   ├── devops/module.json             # Infrastructure & ops
+│   ├── ai-llm/module.json             # Applications IA/LLM
+│   ├── bmad/module.json               # Méthodologie BMAD
+│   ├── vscode/module.json             # Extensions VSCode
+│   ├── data/module.json               # Data science
+│   └── mobile/module.json             # Mobile (React Native/Flutter)
+├── bundles/                           # Bundles présets (full-stack, ai-developer, complete)
 ├── .claude/
 │   ├── settings.json                  # Hooks et permissions
 │   ├── agents/                        # Subagents spécialisés (20 agents)
 │   ├── skills/                        # Paquets de connaissances modulaires (24 skills)
 │   ├── commands/
-│   │   ├── workflows/                 # Workflows multi-agents (16 workflows)
-│   │   └── tools/                     # Outils utilitaires (12 tools)
+│   │   ├── workflows/                 # Workflows multi-agents (17 workflows)
+│   │   └── tools/                     # Outils utilitaires (13 tools)
 │   └── hooks/
-│       ├── scripts/                   # Scripts d'automatisation
+│       ├── scripts/                   # Scripts d'automatisation (dont context-monitor.js)
 │       └── config/                    # Configuration des hooks
 ├── docs/                              # Documentation
 │   ├── project-structure.md           # Ce fichier
@@ -27,6 +40,21 @@ project/
 └── src/                              # Code source
     └── CONTEXT.md                    # Contexte module (Tier 3)
 ```
+
+## Modules disponibles
+
+| Module | Contenu | Dépend de |
+|--------|---------|-----------|
+| `core` | Hooks, 8 skills fondamentales, outils utilitaires | — |
+| `process` | TDD discipline : debugging, tdd-enforcement, writing-plans, git-worktrees | core |
+| `dev` | developer, architect, code-reviewer, qa-engineer, doc-writer + 7 workflows | core, process |
+| `frontend` | frontend-specialist, ui-expert, ux-expert, shadcn/ui, document-processing | core, dev |
+| `devops` | devops-engineer, incident-responder, security-auditor, performance-engineer + 4 workflows | core, dev |
+| `ai-llm` | ai-engineer, llm-ai-patterns, prompt-engineering, workflow ai-feature | core, dev |
+| `bmad` | bmad-orchestrator, product-manager, scrum-master + 3 workflows BMAD + templates | core, dev |
+| `vscode` | vscode-developer, vscode-extension, workflow vscode-extension-dev | core, dev |
+| `data` | data-scientist, data-engineering, workflow data-pipeline | core, dev |
+| `mobile` | mobile-developer (React Native / Flutter) | core, dev, frontend |
 
 ## Agents disponibles
 
@@ -106,6 +134,8 @@ project/
 - `/workflows/repo-context` — Analyse repo existant → génère CLAUDE.md, CONTEXT.md, architecture, ADRs, onboarding
 - `/workflows/vscode-extension-dev` — Développement extension VSCode end-to-end (concept → Marketplace)
 
+- `/workflows/verify-goal` — Vérification orientée-objectif : vérités observables, artefacts substantiels, câblage des composants
+
 #### Workflows BMAD
 - `/workflows/bmad-greenfield` — BMAD nouveau projet : Brief → PRD → Architecture → Épics → Dev story-by-story
 - `/workflows/bmad-brownfield` — BMAD projet existant : découverte contexte → story → implémentation
@@ -124,3 +154,4 @@ project/
 - `/tools/vscode-scaffold` — Scaffold complet extension VSCode (command, treeview, webview, LSP, chat-participant)
 - `/tools/write-plan` — Créer un plan TDD granulaire dans docs/plans/ (tâches 2-5 min, code exact)
 - `/tools/execute-plan` — Exécuter un plan task par task avec TDD + verification automatique
+- `/tools/continue` — Sauvegarder l'état complet de session dans CONTINUE-HERE.md pour reprendre après un reset

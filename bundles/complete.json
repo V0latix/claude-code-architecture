@@ -1,0 +1,17 @@
+{
+  "name": "complete",
+  "displayName": "Complete Setup",
+  "description": "Installation complète de tous les modules : équivalent au clonage direct du repo. 20 agents, 24 skills, 17 workflows, 13 tools.",
+  "modules": [
+    "core",
+    "process",
+    "dev",
+    "frontend",
+    "devops",
+    "ai-llm",
+    "bmad",
+    "vscode",
+    "data",
+    "mobile"
+  ]
+}

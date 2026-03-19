@@ -1,0 +1,19 @@
+{
+  "name": "ai-llm",
+  "displayName": "AI & LLM Applications",
+  "description": "Développement d'applications IA/LLM production-ready : ai-engineer pour RAG, agents, chatbots, classification. Skills llm-ai-patterns et prompt-engineering. Workflow ai-feature.",
+  "version": "1.0.0",
+  "depends": ["core", "dev"],
+  "components": {
+    "agents": [".claude/agents/ai-engineer.md"],
+    "skills": [
+      ".claude/skills/llm-ai-patterns/",
+      ".claude/skills/prompt-engineering/"
+    ],
+    "workflows": [".claude/commands/workflows/ai-feature.md"]
+  },
+  "claude_entries": [
+    "use ai-engineer agent — Applications LLM, RAG, chatbots, agents IA",
+    "/workflows/ai-feature [feature] — Développement feature IA/LLM/RAG end-to-end"
+  ]
+}

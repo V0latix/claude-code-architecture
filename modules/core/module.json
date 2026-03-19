@@ -1,0 +1,43 @@
+{
+  "name": "core",
+  "displayName": "Core Foundation",
+  "description": "Fondation obligatoire : hooks (auto-format, security-scanner, checkpoint-commit, context-monitor), 8 skills transversales et outils utilitaires de base.",
+  "version": "1.0.0",
+  "depends": [],
+  "components": {
+    "hooks": [
+      ".claude/hooks/scripts/auto-format.sh",
+      ".claude/hooks/scripts/checkpoint-commit.sh",
+      ".claude/hooks/scripts/context-injector.sh",
+      ".claude/hooks/scripts/security-scanner.sh",
+      ".claude/hooks/scripts/squash-checkpoints.sh",
+      ".claude/hooks/scripts/context-monitor.js",
+      ".claude/hooks/config/"
+    ],
+    "settings": [".claude/settings.json"],
+    "skills": [
+      ".claude/skills/async-patterns/",
+      ".claude/skills/error-handling-patterns/",
+      ".claude/skills/testing-patterns/",
+      ".claude/skills/api-design/",
+      ".claude/skills/auth-patterns/",
+      ".claude/skills/database-patterns/",
+      ".claude/skills/architecture-diagrams/",
+      ".claude/skills/security-scanning/"
+    ],
+    "tools": [
+      ".claude/commands/tools/git-status.md",
+      ".claude/commands/tools/env-check.md",
+      ".claude/commands/tools/changelog.md",
+      ".claude/commands/tools/deps-audit.md",
+      ".claude/commands/tools/continue.md"
+    ]
+  },
+  "claude_entries": [
+    "/tools/git-status — Git status enrichi avec suggestions",
+    "/tools/env-check — Recenser les variables d'environnement",
+    "/tools/changelog [version] — Générer le CHANGELOG depuis git",
+    "/tools/deps-audit — Audit sécurité et obsolescence des dépendances",
+    "/tools/continue — Sauvegarder l'état de session pour reprise"
+  ]
+}

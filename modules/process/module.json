@@ -1,0 +1,24 @@
+{
+  "name": "process",
+  "displayName": "TDD & Development Process",
+  "description": "Discipline TDD et méthodologie de développement inspirée de obra/superpowers : débogage systématique, cycles RED-GREEN-REFACTOR, vérification avant completion, plans granulaires, git worktrees.",
+  "version": "1.0.0",
+  "depends": ["core"],
+  "components": {
+    "skills": [
+      ".claude/skills/systematic-debugging/",
+      ".claude/skills/tdd-enforcement/",
+      ".claude/skills/verification-before-completion/",
+      ".claude/skills/writing-plans/",
+      ".claude/skills/git-worktrees/"
+    ],
+    "tools": [
+      ".claude/commands/tools/write-plan.md",
+      ".claude/commands/tools/execute-plan.md"
+    ]
+  },
+  "claude_entries": [
+    "/tools/write-plan [feature] — Plan TDD granulaire dans docs/plans/ (tâches 2-5 min)",
+    "/tools/execute-plan [chemin] — Exécuter un plan task par task avec TDD + verification"
+  ]
+}

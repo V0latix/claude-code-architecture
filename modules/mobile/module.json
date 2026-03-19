@@ -1,0 +1,13 @@
+{
+  "name": "mobile",
+  "displayName": "Mobile Development",
+  "description": "Développement mobile cross-platform : mobile-developer agent pour React Native et Flutter. Navigation, gestion d'état, accès natif (caméra, GPS, notifications), publication App Store/Play Store.",
+  "version": "1.0.0",
+  "depends": ["core", "dev", "frontend"],
+  "components": {
+    "agents": [".claude/agents/mobile-developer.md"]
+  },
+  "claude_entries": [
+    "use mobile-developer agent — Applications React Native / Flutter (cross-platform)"
+  ]
+}

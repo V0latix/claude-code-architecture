@@ -8,15 +8,66 @@ Un kit d'architecture complet pour Claude Code qui transforme votre environnemen
 |-----------|----------|-------------|
 | **Agents** | 20 | Experts spécialisés (architect, developer, ui-expert, vscode-developer...) |
 | **Skills** | 24 | Paquets de connaissances modulaires avec progressive disclosure |
-| **Workflows** | 16 | Workflows multi-agents (full-context, bmad-greenfield, vscode-extension-dev...) |
-| **Tools** | 12 | Outils utilitaires (scaffold, test-gen, write-plan, execute-plan, vscode-scaffold...) |
-| **Hooks** | 5 | Automatisations (auto-format, security-scanner, checkpoint-commit...) |
+| **Workflows** | 17 | Workflows multi-agents (full-context, verify-goal, bmad-greenfield, vscode-extension-dev...) |
+| **Tools** | 13 | Outils utilitaires (scaffold, write-plan, execute-plan, continue, vscode-scaffold...) |
+| **Hooks** | 6 | Automatisations (auto-format, security-scanner, checkpoint-commit, context-monitor...) |
+| **Modules** | 10 | Packages installables indépendamment (core, dev, vscode, bmad, ai-llm...) |
 | **MCP Config** | 8 | Serveurs MCP préconfigurés |
 
-## Installation rapide
+## Installation modulaire
+
+Installe uniquement les modules dont tu as besoin :
 
 ```bash
-# Cloner dans votre projet
+git clone https://github.com/V0latix/claude-code-architecture
+cd claude-code-architecture
+
+# Installation interactive (menu de sélection)
+./install.sh /path/to/mon-projet
+
+# Installer un module spécifique (ex: uniquement VSCode)
+./install.sh --modules vscode /path/to/mon-projet
+
+# Installer plusieurs modules
+./install.sh --modules vscode,bmad,process /path/to/mon-projet
+
+# Utiliser un bundle préconfiguré
+./install.sh --bundle full-stack /path/to/mon-projet
+./install.sh --bundle ai-developer /path/to/mon-projet
+
+# Tout installer (équivalent au clone complet)
+./install.sh --all /path/to/mon-projet
+
+# Voir tous les modules disponibles
+./install.sh --list
+```
+
+### Modules disponibles
+
+| Module | Contenu | Dépend de |
+|--------|---------|-----------|
+| `core` | Hooks, 8 skills fondamentales, outils utilitaires | — |
+| `process` | TDD discipline, debugging systématique, write-plan | core |
+| `dev` | developer, architect, code-reviewer, qa-engineer, 7 workflows | core, process |
+| `frontend` | frontend-specialist, ui-expert, ux-expert, shadcn/ui | core, dev |
+| `devops` | devops-engineer, security-auditor, docker-k8s, security-audit | core, dev |
+| `ai-llm` | ai-engineer, llm-ai-patterns, RAG, agents, chatbots | core, dev |
+| `bmad` | bmad-orchestrator, 3 workflows BMAD, templates | core, dev |
+| `vscode` | vscode-developer, vscode-extension-dev, scaffold | core, dev |
+| `data` | data-scientist, data-engineering, data-pipeline | core, dev |
+| `mobile` | mobile-developer, React Native / Flutter | core, dev, frontend |
+
+### Bundles présets
+
+| Bundle | Modules inclus | Pour qui |
+|--------|---------------|---------|
+| `full-stack` | core, process, dev, frontend, devops | Développeur full-stack Next.js/Node.js |
+| `ai-developer` | core, process, dev, ai-llm | Développeur IA/LLM |
+| `complete` | Tous les modules | Installation complète |
+
+## Installation complète (cloner directement)
+
+```bash
 git clone https://github.com/V0latix/claude-code-architecture
 cp -r claude-code-architecture/.claude votre-projet/
 cp claude-code-architecture/CLAUDE.md votre-projet/

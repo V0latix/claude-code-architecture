@@ -1,0 +1,16 @@
+{
+  "name": "data",
+  "displayName": "Data Science & Engineering",
+  "description": "Analyse de données, ML, pipelines ETL/ELT : data-scientist agent, skill data-engineering (dbt, Airflow, qualité des données), workflow data-pipeline.",
+  "version": "1.0.0",
+  "depends": ["core", "dev"],
+  "components": {
+    "agents": [".claude/agents/data-scientist.md"],
+    "skills": [".claude/skills/data-engineering/"],
+    "workflows": [".claude/commands/workflows/data-pipeline.md"]
+  },
+  "claude_entries": [
+    "use data-scientist agent — Analyse de données, ML, statistiques",
+    "/workflows/data-pipeline [pipeline] — Pipeline ELT, dbt, qualité des données, Airflow"
+  ]
+}

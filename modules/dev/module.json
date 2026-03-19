@@ -1,0 +1,51 @@
+{
+  "name": "dev",
+  "displayName": "General Software Development",
+  "description": "Développement logiciel général : agents developer, architect, code-reviewer, qa-engineer, doc-writer, analyst. Workflows feature-dev, code-review, refactor, repo-context. Outils scaffold, test-gen, create-docs.",
+  "version": "1.0.0",
+  "depends": ["core", "process"],
+  "components": {
+    "agents": [
+      ".claude/agents/developer.md",
+      ".claude/agents/architect.md",
+      ".claude/agents/code-reviewer.md",
+      ".claude/agents/qa-engineer.md",
+      ".claude/agents/doc-writer.md",
+      ".claude/agents/analyst.md"
+    ],
+    "workflows": [
+      ".claude/commands/workflows/feature-dev.md",
+      ".claude/commands/workflows/code-review.md",
+      ".claude/commands/workflows/refactor.md",
+      ".claude/commands/workflows/full-context.md",
+      ".claude/commands/workflows/new-project-setup.md",
+      ".claude/commands/workflows/repo-context.md",
+      ".claude/commands/workflows/verify-goal.md"
+    ],
+    "tools": [
+      ".claude/commands/tools/scaffold.md",
+      ".claude/commands/tools/test-gen.md",
+      ".claude/commands/tools/create-docs.md",
+      ".claude/commands/tools/update-docs.md"
+    ]
+  },
+  "claude_entries": [
+    "use developer agent — Implémentation, debugging, refactoring",
+    "use architect agent — Design système, ADR, choix tech",
+    "use code-reviewer agent — Review multi-critères en parallèle",
+    "use qa-engineer agent — Tests, qualité, couverture",
+    "use doc-writer agent — Documentation technique",
+    "use analyst agent — Brainstorming, recherche, briefs",
+    "/workflows/feature-dev [feature] — Développement E2E",
+    "/workflows/code-review [fichier] — Review par 5 agents en parallèle",
+    "/workflows/refactor [cible] — Refactoring intelligent",
+    "/workflows/full-context [feature] — Analyse multi-agents complète",
+    "/workflows/new-project-setup — Scaffold complet nouveau projet",
+    "/workflows/repo-context [repo] — Analyse repo → génère tout le contexte",
+    "/workflows/verify-goal [feature] — Vérification orientée-objectif (GSD)",
+    "/tools/scaffold [composant] — Scaffolding de composants/modules",
+    "/tools/test-gen [fichier] — Générer des tests automatiquement",
+    "/tools/create-docs — Générer la documentation",
+    "/tools/update-docs — Synchroniser docs/code"
+  ]
+}

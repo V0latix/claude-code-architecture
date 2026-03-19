@@ -1,0 +1,18 @@
+{
+  "name": "vscode",
+  "displayName": "VSCode Extension Development",
+  "description": "Développement d'extensions VSCode production-ready end-to-end : vscode-developer agent, skill vscode-extension (API, TreeView, Webview, LSP, Chat Participant), workflow vscode-extension-dev, tool vscode-scaffold.",
+  "version": "1.0.0",
+  "depends": ["core", "dev"],
+  "components": {
+    "agents": [".claude/agents/vscode-developer.md"],
+    "skills": [".claude/skills/vscode-extension/"],
+    "workflows": [".claude/commands/workflows/vscode-extension-dev.md"],
+    "tools": [".claude/commands/tools/vscode-scaffold.md"]
+  },
+  "claude_entries": [
+    "use vscode-developer agent — Extensions VSCode : TreeView, Webview, LSP, Chat Participant, Marketplace",
+    "/workflows/vscode-extension-dev [ext] — Développement extension VSCode end-to-end → Marketplace",
+    "/tools/vscode-scaffold [nom] [type] — Scaffold extension VSCode (command|treeview|webview|language|chat-participant)"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "devops",
+  "displayName": "DevOps & Infrastructure",
+  "description": "Infrastructure, CI/CD, sécurité et ops : devops-engineer, incident-responder, security-auditor, performance-engineer. Workflows security-audit, performance-audit, incident-postmortem, api-design-review.",
+  "version": "1.0.0",
+  "depends": ["core", "dev"],
+  "components": {
+    "agents": [
+      ".claude/agents/devops-engineer.md",
+      ".claude/agents/incident-responder.md",
+      ".claude/agents/security-auditor.md",
+      ".claude/agents/performance-engineer.md"
+    ],
+    "skills": [
+      ".claude/skills/docker-k8s/",
+      ".claude/skills/observability-patterns/",
+      ".claude/skills/incident-response/",
+      ".claude/skills/mcp-builder/"
+    ],
+    "workflows": [
+      ".claude/commands/workflows/security-audit.md",
+      ".claude/commands/workflows/performance-audit.md",
+      ".claude/commands/workflows/incident-postmortem.md",
+      ".claude/commands/workflows/api-design-review.md"
+    ]
+  },
+  "claude_entries": [
+    "use devops-engineer agent — CI/CD, Docker, Kubernetes, infra",
+    "use incident-responder agent — Incidents production, postmortems",
+    "use security-auditor agent — Audit sécurité, OWASP, SAST",
+    "use performance-engineer agent — Profiling, optimisation, benchmarks",
+    "/workflows/security-audit [module] — Audit sécurité complet (OWASP)",
+    "/workflows/performance-audit [module] — Profiling, benchmarks, optimisation DB",
+    "/workflows/incident-postmortem [incident] — Triage, résolution, postmortem blameless",
+    "/workflows/api-design-review [api] — Design/review API REST, OpenAPI, sécurité"
+  ]
+}

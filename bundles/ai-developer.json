@@ -1,0 +1,6 @@
+{
+  "name": "ai-developer",
+  "displayName": "AI Developer",
+  "description": "Kit pour les développeurs IA/LLM : fondation + discipline TDD + dev général + applications LLM (RAG, agents, chatbots). Idéal pour des projets intégrant Claude ou d'autres LLMs.",
+  "modules": ["core", "process", "dev", "ai-llm"]
+}

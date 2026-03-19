@@ -101,6 +101,8 @@
 - `/tools/vscode-scaffold` — Scaffold complet d'un projet d'extension VSCode (command, treeview, webview, LSP, chat)
 - `/tools/write-plan` — Créer un plan TDD granulaire dans docs/plans/ (tâches de 2-5 min avec code exact)
 - `/tools/execute-plan` — Exécuter un plan task par task avec TDD enforcement et verification automatique
+- `/tools/continue` — Sauvegarder l'état de session dans CONTINUE-HERE.md (reprise après reset de contexte)
+- `/workflows/verify-goal [feature]` — Vérification orientée-objectif : vérités observables, artefacts, câblage
 
 ## Règles importantes
 

@@ -1,0 +1,6 @@
+{
+  "name": "full-stack",
+  "displayName": "Full-Stack Developer",
+  "description": "Kit complet pour le développement full-stack moderne : fondation + discipline TDD + dev général + UI/frontend + DevOps/sécurité. Idéal pour un projet Next.js / Node.js en production.",
+  "modules": ["core", "process", "dev", "frontend", "devops"]
+}

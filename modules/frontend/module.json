@@ -1,0 +1,24 @@
+{
+  "name": "frontend",
+  "displayName": "Frontend & UI Development",
+  "description": "Développement UI moderne end-to-end : frontend-specialist (React/Next.js), ui-expert (shadcn/ui, Framer Motion, dark mode), ux-expert (wireframes, design system). Skills frontend-frameworks et ui-design-system.",
+  "version": "1.0.0",
+  "depends": ["core", "dev"],
+  "components": {
+    "agents": [
+      ".claude/agents/frontend-specialist.md",
+      ".claude/agents/ui-expert.md",
+      ".claude/agents/ux-expert.md"
+    ],
+    "skills": [
+      ".claude/skills/frontend-frameworks/",
+      ".claude/skills/ui-design-system/",
+      ".claude/skills/document-processing/"
+    ]
+  },
+  "claude_entries": [
+    "use frontend-specialist agent — Implémentation React/Next.js (code UI)",
+    "use ui-expert agent — UI app end-to-end (design system, shadcn/ui, animations, dark mode)",
+    "use ux-expert agent — UI/UX, wireframes, design system"
+  ]
+}
