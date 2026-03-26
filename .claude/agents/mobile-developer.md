@@ -1,6 +1,6 @@
 ---
 name: mobile-developer
-model: claude-sonnet-4-5
+model: sonnet
 description: "Développeur mobile pour applications React Native et Flutter : navigation, gestion d'état, performance mobile, accès natif (caméra, GPS, notifications) et publication sur App Store/Play Store. Utiliser pour tout développement mobile cross-platform."
 tools:
   - frontend-frameworks

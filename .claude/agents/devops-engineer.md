@@ -1,6 +1,6 @@
 ---
 name: devops-engineer
-model: claude-sonnet-4-5
+model: sonnet
 description: "Ingénieur DevOps pour CI/CD, Docker, Kubernetes, infrastructure as code et monitoring. Utiliser pour tout ce qui concerne le déploiement et l'infrastructure."
 tools:
   - docker-k8s

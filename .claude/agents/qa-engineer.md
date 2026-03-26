@@ -1,6 +1,6 @@
 ---
 name: qa-engineer
-model: claude-sonnet-4-5
+model: sonnet
 description: "Ingénieur QA pour stratégie de tests, qualité de code, performance et couverture. Utiliser pour tout ce qui concerne la qualité et les tests."
 tools:
   - testing-patterns

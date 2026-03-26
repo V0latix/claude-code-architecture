@@ -1,6 +1,6 @@
 ---
 name: product-manager
-model: claude-sonnet-4-5
+model: sonnet
 description: "Product Manager pour PRD, spécifications fonctionnelles, roadmap et définition de features. Utiliser pour transformer des idées en specs actionnables."
 tools:
   - architecture-diagrams

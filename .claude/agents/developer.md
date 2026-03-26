@@ -1,6 +1,6 @@
 ---
 name: developer
-model: claude-opus-4-5
+model: opus
 description: "Développeur senior pour implémentation, debugging, refactoring et optimisation de code. Utiliser pour tout travail de code."
 tools:
   - async-patterns

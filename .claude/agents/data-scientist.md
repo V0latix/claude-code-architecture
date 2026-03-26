@@ -1,6 +1,6 @@
 ---
 name: data-scientist
-model: claude-sonnet-4-5
+model: sonnet
 description: "Data Scientist pour l'analyse de données, modélisation ML, inférence statistique et visualisation. Utiliser pour analyser des données, construire des modèles prédictifs, identifier des patterns ou préparer des dashboards analytiques."
 tools:
   - data-engineering

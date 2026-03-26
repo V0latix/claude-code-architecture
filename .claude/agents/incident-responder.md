@@ -1,6 +1,6 @@
 ---
 name: incident-responder
-model: claude-opus-4-5
+model: opus
 description: "Gestionnaire d'incidents de production pour diagnostics rapides, coordination de crise, communication de statut et postmortems blameless. Utiliser lors d'incidents actifs P0/P1, pour créer des runbooks ou après un incident pour le postmortem."
 tools:
   - incident-response

@@ -1,6 +1,6 @@
 ---
 name: performance-engineer
-model: claude-sonnet-4-5
+model: sonnet
 description: "Ingénieur performance pour profiling, optimisation de requêtes, caching, benchmarks et résolution de goulots d'étranglement. Utiliser quand une feature est lente, lors de reviews de performance ou pour préparer un passage à l'échelle."
 tools:
   - async-patterns

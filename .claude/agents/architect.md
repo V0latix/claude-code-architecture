@@ -1,6 +1,6 @@
 ---
 name: architect
-model: claude-opus-4-5
+model: opus
 description: "Architecte système senior pour design de systèmes, choix technologiques, ADR et review d'architecture. Utiliser pour toute décision structurelle importante."
 tools:
   - async-patterns

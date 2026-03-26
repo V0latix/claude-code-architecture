@@ -1,6 +1,6 @@
 ---
 name: analyst
-model: claude-sonnet-4-5
+model: sonnet
 description: "Analyste produit pour brainstorming, recherche marché, briefs et discovery. Utiliser pour toute phase d'exploration, de recherche ou de définition de problème."
 tools:
   - prompt-engineering

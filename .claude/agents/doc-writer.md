@@ -1,6 +1,6 @@
 ---
 name: doc-writer
-model: claude-haiku-4-5
+model: haiku
 description: "Rédacteur de documentation technique pour API docs, guides, READMEs et documentation développeur. Utiliser pour créer ou mettre à jour toute documentation."
 tools:
   - architecture-diagrams

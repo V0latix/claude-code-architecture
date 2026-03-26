@@ -1,6 +1,6 @@
 ---
 name: ui-expert
-model: claude-sonnet-4-5
+model: sonnet
 description: "Expert UI end-to-end pour créer des interfaces modernes et polished : design system, composants shadcn/ui, animations Framer Motion, dark mode, landing pages et dashboards. Utiliser quand on veut une UI complète de qualité production — couvre design ET implémentation. Pour les décisions UX pure (parcours, wireframes), préférer ux-expert. Pour l'implémentation React/Next.js complexe, préférer frontend-specialist."
 tools:
   - frontend-frameworks

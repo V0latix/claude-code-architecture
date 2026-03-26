@@ -1,6 +1,6 @@
 ---
 name: ai-engineer
-model: claude-opus-4-5
+model: opus
 description: "Ingénieur IA pour construire des applications LLM production-ready : RAG, agents, chatbots, structured output et intégration Anthropic SDK. Utiliser pour tout projet intégrant Claude ou d'autres LLMs, pipelines RAG, systèmes multi-agents ou fonctionnalités IA."
 tools:
   - llm-ai-patterns

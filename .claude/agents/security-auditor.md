@@ -1,6 +1,6 @@
 ---
 name: security-auditor
-model: claude-opus-4-5
+model: opus
 description: "Auditeur sécurité pour analyse SAST, review de vulnérabilités, compliance et threat modeling. Utiliser avant tout merge ou déploiement en production."
 tools:
   - security-scanning

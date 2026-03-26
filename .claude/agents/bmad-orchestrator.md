@@ -1,6 +1,6 @@
 ---
 name: bmad-orchestrator
-model: claude-opus-4-5
+model: opus
 description: "Orchestrateur principal de la méthode BMAD (Breakthrough Method of Agile AI-driven Development). Diagnostique la phase actuelle du projet, route vers l'agent approprié et guide le projet de l'idée initiale au déploiement via des artifacts progressifs et des gates de qualité."
 ---
 

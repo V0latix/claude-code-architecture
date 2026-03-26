@@ -1,6 +1,6 @@
 ---
 name: code-reviewer
-model: claude-opus-4-5
+model: opus
 description: "Reviewer de code multi-critères pour review complète avant merge. Lance des analyses parallèles sur architecture, sécurité, qualité et performance."
 tools:
   - async-patterns

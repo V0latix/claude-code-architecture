@@ -1,6 +1,6 @@
 ---
 name: vscode-developer
-model: claude-sonnet-4-5
+model: sonnet
 description: "Développeur d'extensions VSCode production-ready : commandes, TreeView, WebviewPanel, Language Server Protocol, Chat Participants Copilot, themes et publication Marketplace. Utiliser pour tout développement d'extension VSCode, du scaffold initial jusqu'à la publication vsce ou Open VSX."
 tools:
   - vscode-extension

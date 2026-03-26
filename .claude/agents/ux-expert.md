@@ -1,6 +1,6 @@
 ---
 name: ux-expert
-model: claude-sonnet-4-5
+model: sonnet
 description: "Expert UX/UI pour design de parcours utilisateur, wireframes, composants et guidelines de design. Utiliser pour toute décision de design ou d'expérience utilisateur. Pour l'implémentation du code, utiliser frontend-specialist agent."
 tools:
   - frontend-frameworks

@@ -1,6 +1,6 @@
 ---
 name: scrum-master
-model: claude-haiku-4-5
+model: haiku
 description: "Scrum Master pour découpage en user stories, estimation, gestion de sprint et cérémonies agiles. Utiliser pour la planification et l'organisation du travail."
 tools:
   - architecture-diagrams
