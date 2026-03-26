@@ -65,6 +65,24 @@ cd claude-code-architecture
 | `ai-developer` | core, process, dev, ai-llm | Développeur IA/LLM |
 | `complete` | Tous les modules | Installation complète |
 
+## Mise à jour
+
+Une fois installé, mettez à jour les modules à la dernière version :
+
+```bash
+# Depuis le repo cloné (recommandé)
+./update.sh /path/to/mon-projet
+
+# Sans cloner le repo (one-liner)
+curl -fsSL https://raw.githubusercontent.com/V0latix/claude-code-architecture/main/update.sh | bash -s /path/to/mon-projet
+```
+
+L'updater :
+- Lit `.claude/claude-architecture.json` pour connaître les modules installés
+- Tire les dernières modifications du repo
+- Ré-installe les mêmes modules automatiquement
+- Affiche "Already up to date" si aucune nouvelle version n'est disponible
+
 ## Installation complète (cloner directement)
 
 ```bash

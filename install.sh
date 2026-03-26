@@ -9,6 +9,9 @@ set -euo pipefail
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'
 BLUE='\033[0;34m'; CYAN='\033[0;36m'; BOLD='\033[1m'; RESET='\033[0m'
 
+# ─── Config ─────────────────────────────────────────────────────────────────
+REPO_URL="https://github.com/V0latix/claude-code-architecture"
+
 # ─── Paths ──────────────────────────────────────────────────────────────────
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 MODULES_DIR="$SCRIPT_DIR/modules"
@@ -212,6 +215,41 @@ for entry in m.get('claude_entries', []):
   success "Summary generated: CLAUDE-INSTALLED.md"
 }
 
+# Save tracking metadata for future updates
+save_tracking() {
+  local modules=("$@")
+  local target="${modules[-1]}"
+  unset 'modules[-1]'
+
+  local tracking_file="$target/.claude/claude-architecture.json"
+  local version="unknown"
+  local commit="unknown"
+  local date
+  date=$(date +%Y-%m-%d)
+
+  [[ -f "$SCRIPT_DIR/VERSION" ]] && version=$(cat "$SCRIPT_DIR/VERSION" | tr -d '[:space:]')
+  command -v git &>/dev/null && commit=$(git -C "$SCRIPT_DIR" rev-parse --short HEAD 2>/dev/null || echo "unknown")
+
+  # Build JSON modules array
+  local modules_json
+  modules_json=$(python3 -c "import sys, json; print(json.dumps(sys.argv[1:]))" "${modules[@]}")
+
+  python3 -c "
+import json
+data = {
+    'version': '$version',
+    'commit': '$commit',
+    'installedAt': '$date',
+    'modules': $modules_json,
+    'source': 'https://github.com/V0latix/claude-code-architecture'
+}
+with open('$tracking_file', 'w') as f:
+    json.dump(data, f, indent=2)
+    f.write('\n')
+"
+  success "Tracking metadata saved: .claude/claude-architecture.json"
+}
+
 # Count installed components
 count_installed() {
   local target="$1"
@@ -342,9 +380,10 @@ do_install() {
     install_module "$mod" "$target"
   done
 
-  # Generate summary
+  # Generate summary and save tracking metadata
   echo ""
   generate_summary "${resolved[@]}" "$target"
+  save_tracking "${resolved[@]}" "$target"
 
   # Count results
   read -ra counts <<< "$(count_installed "$target")"
@@ -359,6 +398,10 @@ do_install() {
   echo -e "  1. Copy your ${CYAN}CLAUDE.md${RESET} to $target/ (or use the installed CLAUDE-INSTALLED.md as reference)"
   echo -e "  2. Copy your ${CYAN}.mcp.json${RESET} if needed"
   echo -e "  3. Start Claude Code in $target/"
+  echo ""
+  echo -e "  To update later:"
+  echo -e "  ${CYAN}./update.sh $target${RESET}"
+  echo -e "  or remotely: ${CYAN}curl -fsSL $REPO_URL/raw/main/update.sh | bash -s $target${RESET}"
   echo ""
 }
 
