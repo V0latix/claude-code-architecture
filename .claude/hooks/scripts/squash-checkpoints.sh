@@ -11,7 +11,7 @@ if ! git rev-parse --git-dir > /dev/null 2>&1; then
 fi
 
 # Compter les commits de checkpoint
-CHECKPOINT_COUNT="$(git log --oneline | grep -c "^[a-f0-9]* checkpoint:" 2>/dev/null || echo 0)"
+CHECKPOINT_COUNT="$(git log --oneline | { grep "^[a-f0-9]* checkpoint:" 2>/dev/null || true; } | wc -l | tr -d ' ')"
 
 # Ne squasher que s'il y a au moins 2 checkpoints
 if [ "$CHECKPOINT_COUNT" -lt 2 ]; then
