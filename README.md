@@ -6,7 +6,7 @@ Un kit d'architecture complet pour Claude Code qui transforme votre environnemen
 
 | Composant | Quantité | Description |
 |-----------|----------|-------------|
-| **Agents** | 20 | Experts spécialisés (architect, developer, ui-expert, vscode-developer...) |
+| **Agents** | 19 | Experts spécialisés (architect, developer, frontend-specialist, vscode-developer...) |
 | **Skills** | 24 | Paquets de connaissances modulaires avec progressive disclosure |
 | **Workflows** | 17 | Workflows multi-agents (full-context, verify-goal, bmad-greenfield, vscode-extension-dev...) |
 | **Tools** | 13 | Outils utilitaires (scaffold, write-plan, execute-plan, continue, vscode-scaffold...) |
@@ -49,7 +49,7 @@ cd claude-code-architecture
 | `core` | Hooks, 8 skills fondamentales, outils utilitaires | — |
 | `process` | TDD discipline, debugging systématique, write-plan | core |
 | `dev` | developer, architect, code-reviewer, qa-engineer, 7 workflows | core, process |
-| `frontend` | frontend-specialist, ui-expert, ux-expert, shadcn/ui | core, dev |
+| `frontend` | frontend-specialist, ux-expert, shadcn/ui | core, dev |
 | `devops` | devops-engineer, security-auditor, docker-k8s, security-audit | core, dev |
 | `ai-llm` | ai-engineer, llm-ai-patterns, RAG, agents, chatbots | core, dev |
 | `bmad` | bmad-orchestrator, 3 workflows BMAD, templates | core, dev |
@@ -130,7 +130,6 @@ Invoquer un agent avec `use [nom] agent:` dans Claude Code.
 | `product-manager` | Sonnet | PRD, spécifications, roadmap |
 | `scrum-master` | Haiku | User stories, sprints, agile |
 | `ux-expert` | Sonnet | UI/UX, wireframes, design system |
-| `ui-expert` | Sonnet | UI app end-to-end — design system, shadcn/ui, animations, dark mode |
 | `doc-writer` | Haiku | Documentation technique |
 | `ai-engineer` | Opus | Applications LLM, RAG, chatbots, agents IA |
 | `data-scientist` | Sonnet | Analyse de données, ML, statistiques |

@@ -34,4 +34,13 @@ if git rev-parse --git-dir > /dev/null 2>&1; then
   echo "[$TIMESTAMP] Git: branch=$BRANCH, uncommitted_files=$UNCOMMITTED" >> "$LOG_FILE"
 fi
 
+# Afficher les leçons apprises si le fichier existe
+LESSONS_FILE="$PROJECT_ROOT/tasks/lessons.md"
+if [ -f "$LESSONS_FILE" ]; then
+  echo ""
+  echo "📚 Leçons apprises (tasks/lessons.md) :"
+  cat "$LESSONS_FILE"
+  echo ""
+fi
+
 exit 0

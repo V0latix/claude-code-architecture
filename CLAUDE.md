@@ -53,8 +53,7 @@
 | Profiling, optimisation, benchmarks | `use performance-engineer agent` | async-patterns, database-patterns, observability-patterns, error-handling-patterns |
 | Applications React Native / Flutter | `use mobile-developer agent` | frontend-frameworks, async-patterns, testing-patterns, security-scanning |
 | Incidents production, postmortems | `use incident-responder agent` | incident-response, observability-patterns, error-handling-patterns, docker-k8s |
-| Implémentation React/Next.js (code) | `use frontend-specialist agent` | frontend-frameworks, ui-design-system, async-patterns, testing-patterns, auth-patterns, error-handling-patterns |
-| UI app end-to-end (design + code polished) | `use ui-expert agent` | frontend-frameworks, ui-design-system, architecture-diagrams |
+| Implémentation React/Next.js, UI polished (design system, shadcn/ui, animations) | `use frontend-specialist agent` | frontend-frameworks, ui-design-system, async-patterns, testing-patterns, auth-patterns, error-handling-patterns |
 | Extensions VSCode, Marketplace, Language Server | `use vscode-developer agent` | vscode-extension, async-patterns, testing-patterns, error-handling-patterns |
 
 ### Agent BMAD
@@ -104,6 +103,31 @@
 - `/tools/continue` — Sauvegarder l'état de session dans CONTINUE-HERE.md (reprise après reset de contexte)
 - `/workflows/verify-goal [feature]` — Vérification orientée-objectif : vérités observables, artefacts, câblage
 
+## Orchestration du travail
+
+### Plan en premier
+- Entrer en plan mode pour toute tâche non-triviale (3+ étapes ou décisions d'architecture)
+- Si ça déraille : **STOP et re-planifier immédiatement** — ne pas continuer à pousser
+- Utiliser le plan mode pour les étapes de vérification, pas seulement pour builder
+- Écrire des specs détaillées en amont pour réduire l'ambiguïté
+
+### Stratégie subagents
+- Utiliser les subagents libéralement pour garder la fenêtre de contexte principale propre
+- Déléguer la recherche, l'exploration et l'analyse parallèle aux subagents
+- Pour les problèmes complexes : plus de compute via subagents
+- Une tâche par subagent pour une exécution focalisée
+
+### Gestion des tâches
+- **Planifier d'abord** : écrire le plan dans `tasks/todo.md` avec des items cochables
+- **Vérifier le plan** avant de commencer l'implémentation
+- **Tracker l'avancée** : cocher les items au fur et à mesure
+- **Capturer les leçons** : mettre à jour `tasks/lessons.md` après chaque correction utilisateur
+
+### Boucle d'amélioration continue
+- Après toute correction : mettre à jour `tasks/lessons.md` avec le pattern identifié
+- Écrire des règles qui préviennent la même erreur
+- Relire `tasks/lessons.md` au démarrage de chaque session si le fichier existe
+
 ## Règles importantes
 
 - Toujours écrire des tests avant d'implémenter (TDD)
@@ -113,3 +137,4 @@
 - Ne pas utiliser `any` en TypeScript — préférer `unknown` + type guards
 - Chaque PR doit inclure des tests
 - Toujours vérifier la sécurité avant de merger (use security-auditor agent)
+- Ne jamais marquer une tâche comme terminée sans avoir prouvé qu'elle fonctionne

@@ -48,7 +48,7 @@ project/
 | `core` | Hooks, 8 skills fondamentales, outils utilitaires | — |
 | `process` | TDD discipline : debugging, tdd-enforcement, writing-plans, git-worktrees | core |
 | `dev` | developer, architect, code-reviewer, qa-engineer, doc-writer + 7 workflows | core, process |
-| `frontend` | frontend-specialist, ui-expert, ux-expert, shadcn/ui, document-processing | core, dev |
+| `frontend` | frontend-specialist, ux-expert, shadcn/ui, document-processing | core, dev |
 | `devops` | devops-engineer, incident-responder, security-auditor, performance-engineer + 4 workflows | core, dev |
 | `ai-llm` | ai-engineer, llm-ai-patterns, prompt-engineering, workflow ai-feature | core, dev |
 | `bmad` | bmad-orchestrator, product-manager, scrum-master + 3 workflows BMAD + templates | core, dev |
@@ -84,7 +84,6 @@ project/
 | `performance-engineer` | Sonnet | Profiling, optimisation, benchmarks |
 | `mobile-developer` | Sonnet | Applications React Native / Flutter |
 | `incident-responder` | Opus | Incidents production, postmortems |
-| `ui-expert` | Sonnet | UI app end-to-end — design system, shadcn/ui, animations, dark mode |
 | `vscode-developer` | Sonnet | Extensions VSCode — TreeView, Webview, LSP, Chat Participant, Marketplace |
 | `bmad-orchestrator` | Opus | Orchestrateur BMAD — routing phases, gates, coordination |
 
