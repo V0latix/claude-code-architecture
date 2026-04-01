@@ -1,0 +1,31 @@
+{
+  "name": "claude-code-architecture",
+  "version": "1.0.0",
+  "description": "Kit d'architecture complet pour Claude Code : 19 agents spécialisés, 24 skills, 17 workflows, 13 outils, hooks d'automatisation et configuration MCP — installable par modules.",
+  "author": {
+    "name": "Desmeulemester Romain",
+    "url": "https://github.com/V0latix"
+  },
+  "homepage": "https://github.com/V0latix/claude-code-architecture",
+  "repository": "https://github.com/V0latix/claude-code-architecture",
+  "license": "MIT",
+  "keywords": [
+    "agents",
+    "skills",
+    "workflows",
+    "hooks",
+    "mcp",
+    "bmad",
+    "tdd",
+    "typescript",
+    "nextjs",
+    "multi-agent",
+    "devops",
+    "vscode"
+  ],
+  "agents": "./.claude/agents/",
+  "skills": "./.claude/skills/",
+  "commands": ["./.claude/commands/workflows/", "./.claude/commands/tools/"],
+  "hooks": "./.claude/settings.json",
+  "mcpServers": "./.mcp.json"
+}
